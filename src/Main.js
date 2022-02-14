@@ -9,7 +9,7 @@ const PostList = props => {
       <CommonTable headersName={['제목', '등록일']}>
         <CommonTableRow>
           <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-01-29</CommonTableColumn>
+          <CommonTableColumn>2022-02-14</CommonTableColumn>
         </CommonTableRow>
         <CommonTableRow>
           <CommonTableColumn>제목</CommonTableColumn>
