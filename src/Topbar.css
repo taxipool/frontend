@@ -1,0 +1,14 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: gray;
+    text-align: left;
+    padding: 20px;
+}
+.header * {
+    display: inline;
+}
+.header img {
+    margin-right: 10px;
+}

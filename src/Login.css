@@ -1,0 +1,33 @@
+.login {
+    height: 100vh;
+    padding: 70px;
+    background-color: white;
+    margin-top: 70px;
+    background-color: white;
+}
+.login .title {
+    font-size: 30px;
+}
+.login hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
+.login label {
+    text-align: left;
+    padding: 3px 10px;
+    display: block;
+    background-color: #ccc;
+    width: 150px;
+    margin: 0 auto;
+    border: 3px solid #999;
+}
+.login input {
+    border: 3px solid;
+    padding: 3px 10px;
+    width: 150px;
+    margin: 8px;
+}
+.login button {
+    background-color: black;
+    color: white;
+}

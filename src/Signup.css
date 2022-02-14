@@ -1,0 +1,33 @@
+.signup {
+    height: 100vh;
+    padding: 70px;
+    background-color: white;
+    margin-top: 70px;
+    background-color: white;
+}
+.signup .title {
+    font-size: 30px;
+}
+.signup hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
+.signup label {
+    text-align: left;
+    padding: 3px 10px;
+    display: block;
+    background-color: #ccc;
+    width: 150px;
+    margin: 0 auto;
+    border: 3px solid #999;
+}
+.signup input {
+    border: 3px solid;
+    padding: 3px 10px;
+    width: 150px;
+    margin: 8px;
+}
+.signup button {
+    background-color: black;
+    color: white;
+}
