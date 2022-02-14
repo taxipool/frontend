@@ -1,3 +1,11 @@
+body {
+  background-image: url(../images/bg.png);
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-color: #bdd7ee;
+  background-position: top;
+}
+
 .App {
   text-align: center;
 }
