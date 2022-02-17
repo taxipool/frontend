@@ -1,0 +1,52 @@
+.traffic-light {
+    position: fixed;
+    left: 30px;
+    bottom: 20px;
+}
+
+.traffic-light .top {
+    border: 3px solid;
+    border-radius: 3px;
+    background-color: #C0C0C0;
+    padding: 5px 3px;
+}
+
+.traffic-light .top .login {
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-color: #FF8C00;
+}
+
+.traffic-light .top .mid {
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-color: #FF8C00;
+}
+
+.traffic-light .top .signup {
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-color: #228B22;
+}
+
+.traffic-light .middle {
+    border: 3px solid;
+    border-radius: 3px;
+}
+
+.traffic-light .bottom {
+    border: 3px solid;
+    border-radius: 3px;
+}
