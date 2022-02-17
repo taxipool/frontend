@@ -1,4 +1,4 @@
-.create {
+.update {
     height: 100vh;
     padding: 70px;
     background-color: white;
@@ -6,16 +6,16 @@
     background-color: white;
 }
 
-.create .title {
+.update .title {
     font-size: 30px;
 }
 
-.create hr {
+.update hr {
     border-top: 4px solid #666;
     margin: 20px 30%;
 }
 
-/*.create label {
+/*.update label {
     text-align: left;
     padding: 3px 10px;
     display: inline;
@@ -26,7 +26,7 @@
 }
 */
 
-.create label {
+.update label {
     text-align: left;
     display: inline;
     background-color: #ccc;
@@ -35,38 +35,38 @@
     border: 3px solid #999;
 }
 
-.create input {
+.update input {
     border: 3px solid;
     padding: 3px 10px;
     width: 150px;
     margin: 8px;
 }
 
-.create .roomname {
+.update .roomname {
     padding: 3px 200px;
 }
 
-.create .totalmember {
+.update .totalmember {
     padding: 3px 30px;
 }
 
-.create .startpoint {
+.update .startpoint {
     padding: 3px 100px;
 }
 
-.create .endpoint {
+.update .endpoint {
     padding: 3px 100px;
 }
 
-.create .startdate {
+.update .startdate {
     padding: 3px 100px;
 }
 
-.create .starttime {
+.update .starttime {
     padding: 3px 100px;
 }
 
-.create .cancel {
+.update .cancel {
     background-color: red;
     border-color: darkred;
     border-width: 4px;
@@ -81,7 +81,7 @@
     font-size: medium;
 }
 
-.create .complete {
+.update .complete {
     background-color: gray;
     border-color: dimgray;
     border-width: 4px;

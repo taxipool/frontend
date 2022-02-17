@@ -1,9 +1,9 @@
-import './Create.css';
+import './Update.css';
  
-function Create() {
+function Update() {
     return(
-        <div class="create">
-            <h2 class="title">CREATE</h2>
+        <div class="Update">
+            <h2 class="title">UPDATE</h2>
             <hr></hr>
             <div class="top">
                 <div class="top_1">
@@ -47,4 +47,4 @@ function Create() {
     )
 }
 
-export default Create;
+export default Update;

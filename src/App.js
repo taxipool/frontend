@@ -7,12 +7,13 @@ import Topbar from './Topbar';
 import Start from './Start';
 import View from './View';
 import Create from './Create';
+import Update from './Update';
 
 function App() {
   return (
     <div className="App">
       <Topbar />
-      <Create />
+      <Update />
     </div>
   );
 }
