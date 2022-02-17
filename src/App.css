@@ -1,9 +1,21 @@
 body {
-  background-image: url(../images/bg.png);
-  background-size: 100vw;
+  /*멀티 백그라운드 설정 (Start.js에서 하나 이미지로 해놨음 기록용 코드)
+  background-image: url('../images/bg.png'), url('../images/start2_1.PNG'), url('../images/start2_2.PNG');
+  background-size: 100vw, 100vw, 100vw;
   background-repeat: no-repeat;
+  background-position: top, center, bottom;*/
   background-color: #bdd7ee;
-  background-position: top;
+}
+
+@font-face {
+  font-family: 'GongGothicMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'GongGothicMedium';
 }
 
 .App {

@@ -1,0 +1,62 @@
+.create {
+    height: 100vh;
+    padding: 20px;
+    background-color: white;
+    margin-top: 60px;
+    background-color: white;
+}
+
+.create .title {
+    font-size: 30px;
+}
+
+.create hr {
+    border-top: 4px solid #666;
+    margin: 20px;
+}
+
+.create label {
+    text-align: left;
+    padding: 3px 10px;
+    display: inline;
+    background-color: #ccc;
+    width: 150px;
+    margin: 0 auto;
+    border: 3px solid #999;
+}
+
+.create .top, .center, .bottom {
+    display: block;
+}
+
+.create input {
+    border: 3px solid;
+    padding: 3px 10px;
+    width: 150px;
+    margin: 8px;
+}
+
+.create .cancel {
+    background-color: darkred;
+    color: red;
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-left: 400px;
+    margin-top: 20px;
+
+    font-size: medium;
+}
+
+.create .complete {
+    background-color: dimgray;
+    color: gray;
+    width: 80px;
+    height: 30px;
+
+    margin-top: 20px;
+
+    font-size: medium;
+    color: gray;
+}
