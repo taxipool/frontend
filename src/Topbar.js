@@ -5,7 +5,7 @@ function Topbar() {
         <div>
             <div class="header">
                 <a href="">
-                    <img src="../images/logo.png"/>
+                    <img src="images\logo.png"/>
                     <h2>TAXIPOOL</h2>
                 </a>
             </div>
