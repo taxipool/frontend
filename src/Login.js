@@ -31,7 +31,7 @@ function Login() {
  
     return(
         <div class="login">
-            <h2 class="title">LOGIN</h2>
+            <h1 class="title">LOGIN</h1>
             <hr></hr>
             <div>
                 <label htmlFor='input_id'>아이디</label>

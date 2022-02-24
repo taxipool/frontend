@@ -11,4 +11,6 @@
 }
 .header img {
     margin-right: 10px;
+    height: 40vmin;
+    pointer-events: none;
 }

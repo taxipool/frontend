@@ -1,0 +1,72 @@
+.view {
+    height: 100vh;
+    padding: 70px;
+    background-color: #bdd7ee;
+    margin-top: 60px;
+}
+
+.view .title {
+    font-size: 30px;
+}
+
+.view hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
+
+/*.update label {
+    text-align: left;
+    padding: 3px 10px;
+    display: inline;
+    background-color: #ccc;
+    width: 150px;
+    margin: 0 auto;
+    border: 3px solid #999;
+}
+*/
+
+.view label {
+    text-align: left;
+    display: inline-block;
+    width: 500px;
+    /*margin: 0 auto;*/
+}
+
+.view .roomname {
+    background-color: #ccc;
+    border: 3px solid #999;
+}
+
+.view .roomview, .comment {
+    background-color: white;
+    border-width: 3px;
+    border-color: black;
+}
+
+.update .list {
+    background-color: gray;
+    border-color: dimgray;
+    border-width: 4px;
+    color: white;
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-left: 300px;
+    margin-top: 20px;
+
+    font-size: medium;
+}
+
+.update .ride {
+    background-color: mediumblue;
+    border-color: navy;
+    border-width: 4px;
+    color: #000000;
+    width: 80px;
+    height: 30px;
+
+    margin-top: 20px;
+
+    font-size: medium;
+}

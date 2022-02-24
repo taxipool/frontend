@@ -8,12 +8,14 @@ import Start from './Start';
 import View from './View';
 import Create from './Create';
 import Update from './Update';
+import TrafficLight from './TrafficLight';
 
 function App() {
   return (
     <div className="App">
       <Topbar />
-      <Update />
+      <View />
+      <TrafficLight />
     </div>
   );
 }
