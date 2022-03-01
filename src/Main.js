@@ -1,35 +1,13 @@
-import React from 'react';
-import CommonTable from './table/CommonTable';
-import CommonTableColumn from './table/CommonTableColumn';
-import CommonTableRow from './table/CommonTableRow';
- 
-const PostList = props => {
-  return (
-    <>
-      <CommonTable headersName={['제목', '등록일']}>
-        <CommonTableRow>
-          <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-02-14</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-01-29</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-01-29</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-01-29</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>제목</CommonTableColumn>
-          <CommonTableColumn>2022-01-29</CommonTableColumn>
-        </CommonTableRow>
-      </CommonTable>
-    </>
-  )
+import React from "react";
+
+function Main(props) {
+  console.log(props);
+  return(
+    <div>
+      <br/><br/><br/><br/><br/><br/>
+      <a href="./login">로그인</a>
+    </div>
+    )
 }
- 
-export default PostList;
+
+export default Main;

@@ -1,14 +1,29 @@
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     background-color: gray;
     text-align: left;
     padding: 20px;
 }
-.header * {
-    display: inline;
+.header .line {
+    width: 150px;
+    height: 30px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 0 18px;
+    text-align: center;
+}
+.header h2 {
+    position: fixed;
+    left: 60px;
+    top: 10px;
+    font-size: 40px;
 }
 .header img {
-    margin-right: 10px;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
 }

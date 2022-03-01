@@ -22,16 +22,16 @@ function Login() {
  
 	// 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
-        axios.get('/user_inform/login')
+        axios.get('http://175.201.134.167:8000/api/rooms/')
         .then(res => console.log(res))
-        .catch()
+        .catch(res => console.log('sss'))
     },
     // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
     [])
  
     return(
         <div class="login">
-            <h2 class="title">LOGIN</h2>
+            <h1 class="title">LOGIN</h1>
             <hr></hr>
             <div>
                 <label htmlFor='input_id'>아이디</label>
