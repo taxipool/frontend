@@ -51,9 +51,9 @@ iframe, video, embed, object {
   font-family: 'KOTRAHOPE';
 }
 body {
-  background-image: url(../images/bg.png);
   background-size: 100vw;
   background-repeat: no-repeat;
   background-color: #bdd7ee;
   background-position: top;
+  text-align: center;
 }
