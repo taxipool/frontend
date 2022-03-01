@@ -22,9 +22,9 @@ function Login() {
  
 	// 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
-        axios.get('/user_inform/login')
+        axios.get('http://175.201.134.167:8000/api/rooms/')
         .then(res => console.log(res))
-        .catch()
+        .catch(res => console.log('sss'))
     },
     // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
     [])
