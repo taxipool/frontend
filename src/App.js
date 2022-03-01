@@ -1,16 +1,28 @@
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Main from './Main';
 import Login from './Login';
-import Signup from './Signup';
+import './App.css';
 import Topbar from './Topbar';
 import Traffic from './TrafficLight';
 
 function App() {
+  // if (window.location === '/') {
+  //   document.getElementById("header").style.display === "none";
+  // };
   return (
-    <div className="App">
+    <BrowserRouter>
       <Topbar />
       <Traffic />
-      <Login />
-    </div>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="login/*" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
