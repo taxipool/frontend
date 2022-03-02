@@ -36,20 +36,17 @@ iframe, video, embed, object {
 
 /* 기본 설정 */
 @font-face {
-  font-family: 'KOTRAHOPE';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+  font-family: 'GongGothicMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: 'GangwonEduPowerExtraBoldA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+
 * {
-  font-family: 'KOTRAHOPE';
+  font-family: 'GongGothicMedium';
+
 }
+
 body {
   background-size: 100vw;
   background-repeat: no-repeat;

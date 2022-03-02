@@ -1,40 +1,40 @@
 body {
-    background-image: url(../images/start.png);
+    background-image: url(../images/start_big.png);
     background-size: 100vw;
     background-position: top;
   }
 
 .start {
     padding: 30px;
-    height: 205vh;
+    height: 125vh;
     overflow: visible;
 }
 
 .start .startBtn {
     position: absolute;
-    top: 1050px;
+    top: 670px;
 }
 
 .start .start-login, .start-signup {
     padding: 5px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 
     border-radius: 50%;
-    border-width: 7px;
+    border-width: 10px;
     border-color: black;
 
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 700;
 }
 
 .start .start-login {
     background-color: darkorange;
     margin-right: 100px;
-    margin-left: 300px;
+    margin-left: 350px;
 }
 
 .start .start-signup {
     background-color: forestgreen;
-    margin-left: 30px;
+    margin-left: 0px;
 }

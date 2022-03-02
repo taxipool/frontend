@@ -30,4 +30,8 @@
 .login button {
     background-color: black;
     color: white;
+    width: 80px;
+    height: 30px;
+
+    font-size: medium;
 }

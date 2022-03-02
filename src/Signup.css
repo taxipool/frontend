@@ -1,9 +1,9 @@
 .signup {
     height: 100vh;
     padding: 70px;
-    background-color: white;
-    margin-top: 70px;
-    background-color: white;
+    background-color: #bdd7ee;
+    margin-top: 60px;
+    text-align: center !important;
 }
 .signup .title {
     font-size: 30px;
@@ -22,6 +22,7 @@
     border: 3px solid #999;
 }
 .signup input {
+    background-color: #fff;
     border: 3px solid;
     padding: 3px 10px;
     width: 150px;
@@ -30,4 +31,8 @@
 .signup button {
     background-color: black;
     color: white;
+    width: 80px;
+    height: 30px;
+
+    font-size: medium;
 }

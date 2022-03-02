@@ -1,0 +1,120 @@
+.create {
+    height: 100vh;
+    padding: 70px;
+    background-color: #bdd7ee;
+    margin-top: 60px;
+}
+
+.create .title {
+    font-size: 30px;
+}
+
+.create hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
+
+/*.create label {
+    text-align: left;
+    padding: 3px 10px;
+    display: inline;
+    background-color: #ccc;
+    width: 150px;
+    margin: 0 auto;
+    border: 3px solid #999;
+}
+*/
+
+.create label {
+    text-align: left;
+    display: inline;
+    background-color: #ccc;
+    /*width: 150px;
+    margin: 0 auto;*/
+    border: 3px solid #999;
+}
+
+.create input {
+    border: 3px solid;
+    padding: 3px 3px;
+}
+
+.create .roomname {
+    padding: 3px 180px;
+    margin-right: 5px;
+}
+
+.create .totalmember {
+    padding: 3px 20px;
+}
+
+.create .startpoint {
+    padding: 3px 93px;
+    margin-right: 5px;
+}
+
+.create .endpoint {
+    padding: 3px 93px;
+}
+
+.create .startdate {
+    padding: 3px 84px;
+    margin-right: 5px;
+}
+
+.create .starttime {
+    padding: 3px 84px;
+}
+
+.create .roomname_i {
+    width: 384px;
+    margin: 10px 5px 10px 0px;
+}
+
+.create .totalmember_i {
+    width: 64px;
+    margin: 10px 0px;
+}
+
+.create .startpoint_i {
+    width: 224px;
+    margin: 10px 5px 10px 0px;
+}
+
+.create .endpoint_i {
+    width: 224px;
+    margin: 10px 0px;
+}
+
+.create .startdate_ia, .startdate_ib, .starttime_ia, .starttime_ib {
+    width: 104px;
+    margin: 10px 2.5px;
+}
+
+.create .cancel {
+    background-color: red;
+    border-color: darkred;
+    border-width: 4px;
+    color: white;
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-left: 300px;
+    margin-top: 20px;
+
+    font-size: medium;
+}
+
+.create .complete {
+    background-color: gray;
+    border-color: dimgray;
+    border-width: 4px;
+    color: black;
+    width: 80px;
+    height: 30px;
+
+    margin-top: 20px;
+
+    font-size: medium;
+}
