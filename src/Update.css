@@ -35,6 +35,7 @@
 }
 
 .update input {
+    background-color: #fff;
     border: 3px solid;
     padding: 3px 3px;
 }
@@ -67,34 +68,33 @@
 }
 
 .update .roomname_i {
-    width: 384px;
+    width: 395px;
     margin: 10px 5px 10px 0px;
 }
 
 .update .totalmember_i {
-    width: 64px;
+    width: 75px;
     margin: 10px 0px;
 }
 
 .update .startpoint_i {
-    width: 224px;
+    width: 236px;
     margin: 10px 5px 10px 0px;
 }
 
 .update .endpoint_i {
-    width: 224px;
+    width: 236px;
     margin: 10px 0px;
 }
 
 .update .startdate_ia, .startdate_ib, .starttime_ia, .starttime_ib {
-    width: 104px;
+    width: 116px;
     margin: 10px 2.5px;
 }
 
 .update .cancel {
     background-color: red;
-    border-color: darkred;
-    border-width: 4px;
+    border: 4px solid darkred;
     color: white;
     width: 80px;
     height: 30px;
@@ -108,8 +108,7 @@
 
 .update .complete {
     background-color: gray;
-    border-color: dimgray;
-    border-width: 4px;
+    border: 4px solid dimgray;
     color: black;
     width: 80px;
     height: 30px;

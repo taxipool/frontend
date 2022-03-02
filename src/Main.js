@@ -1,11 +1,13 @@
 import React from "react";
+import './Main.css';
 
 function Main(props) {
   console.log(props);
   return(
-    <div>
+    <div class="main">
+      <h2 class="title">LIST</h2>
+      <hr></hr>
       <br/><br/><br/><br/><br/><br/>
-      <a href="./login">로그인</a>
     </div>
     )
 }

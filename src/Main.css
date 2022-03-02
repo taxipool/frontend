@@ -1,0 +1,15 @@
+.main {
+    height: 100vh;
+    padding: 70px;
+    background-color: #bdd7ee;
+    margin-top: 60px;
+}
+
+.main .title {
+    font-size: 30px;
+}
+
+.main hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
