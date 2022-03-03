@@ -13,11 +13,9 @@ import Update from './Update';
 import Traffic from './TrafficLight';
 import Signup from './Signup';
 import View from './View';
+import $ from 'jquery';
 
 function App() {
-  // if (window.location === '/') {
-  //   document.getElementById("header").style.display === "none";
-  // };
   return (
     <BrowserRouter>
       <Topbar />

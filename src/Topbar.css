@@ -1,11 +1,17 @@
+@charset "utf-8";
+
 .header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     text-align: left;
     background-color: gray;
     padding: 30px;
+    height: 40px;
+    transition: opacity 1.4s;
 }
+
 .header .title, .header .logo {
      z-index: 1;
 }

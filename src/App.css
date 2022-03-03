@@ -50,6 +50,9 @@ iframe, video, embed, object {
 * {
   font-family: 'KOTRAHOPE';
 }
+* {
+  cursor: url(../images/cur.cur), auto !important;
+}
 body {
   background-size: 100vw;
   background-repeat: no-repeat;
