@@ -19,9 +19,16 @@ function Signup() {
     }
  
     useEffect(() => {
-        axios.get('/user_inform/signup')
+        let obj = {
+            id: "myid",
+            pw: "mypw",
+            name: "myname",
+            phonenum: "myphonenum",
+            nickname: "mynickname"
+        };
+        axios.get('/user_inform/signup', obj)
         .then(res => console.log(res))
-        .catch()
+        .catch(res => console.log('sss'))
     },
     [])
  
