@@ -1,5 +1,4 @@
 import './Start.css';
-import $ from 'jquery';
 
 function Start() {
     return(

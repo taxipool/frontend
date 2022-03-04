@@ -16,6 +16,7 @@ import View from './View';
 import $ from 'jquery';
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Topbar />

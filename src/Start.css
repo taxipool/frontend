@@ -12,29 +12,29 @@ body {
 
 .start .startBtn {
     position: absolute;
-    top: 1050px;
+    top: 1130px;
+    left: 0;
+    width: calc(50% + 250px);
+    text-align: center;
 }
 
 .start .start-login, .start-signup {
+    margin: 0 60px;
+    border: 5px solid;
     padding: 5px;
     width: 200px;
     height: 200px;
-
     border-radius: 50%;
     border-width: 7px;
     border-color: black;
-
     font-size: xx-large;
     font-weight: 700;
 }
 
 .start .start-login {
     background-color: darkorange;
-    margin-right: 100px;
-    margin-left: 300px;
 }
 
 .start .start-signup {
     background-color: forestgreen;
-    margin-left: 30px;
 }

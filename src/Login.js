@@ -22,7 +22,7 @@ function Login() {
  
 	// 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
-        axios.get('http://175.201.134.167:8000/api/rooms/')
+        axios.get('')
         .then(res => console.log(res))
         .catch(res => console.log('sss'))
     },
