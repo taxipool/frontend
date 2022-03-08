@@ -13,7 +13,7 @@ import Update from './Update';
 import Traffic from './TrafficLight';
 import Signup from './Signup';
 import View from './View';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 function App() {
   

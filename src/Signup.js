@@ -14,14 +14,21 @@ function Signup() {
         setInputPw(e.target.value)
     }
  
-    const onClickLogin = () => {
-        console.log('click signup')
+    const onClickSignup = () => {
+        axios.post('http://taxipool.iptime.org:8080/api/rooms/', null, {
+            params: {
+            'user_id': inputId,
+            'user_pw': inputPw
+            }
+        })
+        .then(res => console.log(res))
+        .catch()
     }
  
     useEffect(() => {
-        axios.get('/user_inform/signup')
+        axios.get('http://taxipool.iptime.org:8080/api/rooms/')
         .then(res => console.log(res))
-        .catch()
+        .catch(res => console.log('통신 실패!!'))
     },
     [])
  
@@ -50,7 +57,7 @@ function Signup() {
                 <input type='text' name='input_num' value={inputPw} onChange={handleInputPw} />
             </div>
             <div>
-                <button type='button' onClick={onClickLogin}>회원가입</button>
+                <button type='button' onClick={onClickSignup}>회원가입</button>
             </div>
         </div>
     )

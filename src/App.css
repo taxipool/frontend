@@ -48,9 +48,6 @@ iframe, video, embed, object {
   cursor: url(../images/cur.cur), auto !important;
 }
 body {
-  background-size: 100vw;
-  background-repeat: no-repeat;
   background-color: #bdd7ee;
-  background-position: top;
   text-align: center;
 }

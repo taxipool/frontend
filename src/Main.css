@@ -1,0 +1,49 @@
+.main {
+    width: calc(100vw - 150px);
+    margin-left: 130px;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 110px 60px 60px 60px;
+    background-color: #bdd7ee;
+    margin: o auto;
+    text-align: left !important;
+}
+.main .title {
+    text-align: center;
+    font-size: 30px;
+}
+.main hr {
+    border-top: 4px solid #666;
+    margin: 20px 30%;
+}
+.main ul .wrap {
+    width: 25vw;
+    border: 3px solid #808080;
+    margin: 10px;
+    background-color: #c0c0c0;
+    padding: 10px;
+}
+.main li {
+    display: inline-block;
+}
+.main ul li img {
+    margin-left: 10px;
+    margin-bottom: -13px;
+}
+.main .pagination {
+    text-align: center !important;
+}
+.main .pagination li {
+    display: inline-block;
+}
+.main .pagination button {
+    display: inline-block;
+}
+.main .search {
+    background-color: #fff;
+    width: 400px;
+    margin: 0 auto;
+}
+.main .search button {
+    background-color: yellow;
+}

@@ -1,13 +1,10 @@
-body {
+.start {
     background-image: url(../images/start.png);
     background-size: 100vw;
     background-position: top;
-  }
-
-.start {
     padding: 30px;
     height: 205vh;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .start .startBtn {

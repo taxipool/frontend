@@ -1,12 +1,97 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Main.css';
+import icon from './icon.png'
 
-function Main(props) {
-  console.log(props);
+function Main() {
+  // const [starttime, totalmember, createtime] = useState(null);
+  // const [data, setData, leaderid, roomname, startpoint, endpoint] = useState('');
+
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("token")) {
+  //     this.isLogin = false;
+  //   } else {
+  //     this.isLogin = true;
+  //   }
+
+  //   axios.get('http://taxipool.iptime.org:8080/api/rooms/')
+  //   .then(res => setData(res.data))
+  //   .catch(res => console.log('통신 실패!!'))
+  // },
+  // [])
+  
   return(
-    <div>
-      <br/><br/><br/><br/><br/><br/>
-      <br/><br/><br/><br/><br/><br/>
-      <a href="./login">로그인</a>
+    <div className="main">
+      <h2 class="title">LIST</h2>
+      <hr></hr>
+      <ul>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            {/* <div>{`장소: ${endpoint}`}</div>
+            <div>날짜: </div> */}
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            <div>장소: </div>
+            <div>날짜: </div>
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            <div>장소: </div>
+            <div>날짜: </div>
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            <div>장소: </div>
+            <div>날짜: </div>
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            <div>장소: </div>
+            <div>날짜: </div>
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+        <li>
+          <img src={icon} className="icon"></img><br/>
+          <div className="wrap">
+            <div>장소: </div>
+            <div>날짜: </div>
+            <div>시간: </div>
+            <div>1/4</div>
+          </div>
+        </li>
+
+        <ul class="pagination">
+          <button class="page_btn">◀</button>
+          <li>1</li>/
+          <li>5</li>
+          <button class="page_btn">▶</button>
+        </ul>
+      </ul>
+
+      <form className="search">
+        <input type="text" placeholder="검색" name="search" />
+        <button type="submit">검색</button>
+      </form>
     </div>
     )
 }

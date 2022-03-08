@@ -11,27 +11,27 @@ export function Topbar() {
         
         var currentScrollPos = window.pageYOffset;
         if (prevScrollpos < currentScrollPos) {
-            headerbar.style.opacity = 0.1;  
+            headerbar.style.opacity = 0;  
         } else {        
             headerbar.style.opacity = 1;   
         }
     }
 
     return(
-        <header id="headerbar" class="header nav-down">
-            <img class="logo" src={logo}></img>
+        <header id="headerbar" className="header nav-down">
+            <img className="logo" src={logo}></img>
             <a href="/">
-                <h2 class="title">TAXIPOOL</h2>
+                <h2 className="title">TAXIPOOL</h2>
             </a>
-            <div class="line-wrap">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <div className="line-wrap">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
             </div>
         </header>
     )
