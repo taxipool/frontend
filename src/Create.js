@@ -25,6 +25,7 @@ const onClickCreate = () => {
             if (res.status == 200)
             {
                 alert('방 등록이 완료되었습니다!');
+                window.location.href = '/main';
             }
             else
             {
