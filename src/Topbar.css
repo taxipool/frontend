@@ -18,9 +18,9 @@
 .header .line-wrap {
     position: fixed;
     top: 20px;
-    left: 0;
-    width: 100%;
-    text-align: center;
+    left: 10px;
+    width: 180%;
+    text-align: left;
 }
 .header .line-wrap .line {
     width: 140px;

@@ -1,8 +1,6 @@
 import './Start.css';
 
 function Start() {
-    // window.location.href="/main";
-
     return(
         <div class="start">
             <div class="startBtn">

@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
+import React, { useEffect, useState } from 'react';
 import Main from './Main';
 import Login from './Login';
 import './App.css';
@@ -16,6 +16,19 @@ import View from './View';
 // import $ from 'jquery';
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false)
+ 
+  useEffect(() => {
+    if(sessionStorage.getItem('user_id') === null){
+      console.log('isLogin ?? :: ', isLogin)
+    } else {
+      setIsLogin(true)
+      console.log('isLogin ?? :: ', isLogin)
+      if ( window.location.pathname == '/' ) {
+        window.location.href = '/main';
+   }
+    }
+  })
   
   return (
     <BrowserRouter>

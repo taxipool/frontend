@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Login.css';
  
 function Login() {
+    const token = JSON.parse(sessionStorage.getItem("access_token"));
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
     const handleInputId = (e) => {
@@ -11,26 +12,39 @@ function Login() {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-    const onClickLogin = (email, password) => {
-        const data = {
-            email,
-            password,
-        };
-        axios.post('http://taxipool.iptime.org:8080/api/user/', data, {
+ 
+    useEffect(() => {
+    },
+    []);
+
+    const onClickLogin = () => {
+        axios.post('http://taxipool.iptime.org:8080/api/user/', null, {
             params: {
-                'user_id': inputId,
-                'user_pw': inputPw,
+            'user_id': inputId,
+            'user_pw': inputPw
             },
-            // headers: {
-            //     "Authorization" : `Bearer ${token}`
-            // }
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         })
         .then(res => {
-            const { accessToken } = res.data;
-            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+            if (res.data.id === undefined){
+                alert('아이디 일치 x')
+            } else if (res.data.id === null){
+                alert('비번 일치 x')
+            } else if (res.data.id === inputId) {
+                console.log('로그인 성공')
+                let token = res.data.token;
+                sessionStorage.setItem("access_token", token);
+                console.log(token);
+                sessionStorage.setItem('user_id', inputId)
+            }
+            if (res.status == 200) 
+                window.location.href="/main";
         })
-        .catch(error => {
-            console.log("에러")
+        .catch(err => {
+            alert("로그인 실패!!");
+            console.log(err);
         });
     }
  

@@ -89,7 +89,9 @@ function Main() {
       </ul>
 
       <form className="search">
-        <input type="text" placeholder="검색" name="search" />
+        <p class="search-title">검색</p>
+        <input type="text" placeholder="출발지: " name="startpoint" />
+        <input type="text" placeholder="도착지: " name="endpoint" />
         <button type="submit">검색</button>
       </form>
     </div>
