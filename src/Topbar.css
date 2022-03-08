@@ -1,17 +1,33 @@
+@charset "utf-8";
+
 .header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     text-align: left;
     background-color: gray;
     padding: 30px;
+    height: 40px;
+    transition: opacity 1.4s;
 }
-.header .line {
-    width: 150px;
-    height: 30px;
+
+.header .title, .header .logo {
+     z-index: 1;
+}
+.header .line-wrap {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    width: 180%;
+    text-align: left;
+}
+.header .line-wrap .line {
+    width: 140px;
+    height: 20px;
     background-color: #fff;
     display: inline-block;
-    margin: 0 18px;
+    margin: 0 22px;
     text-align: center;
 }
 .header h2 {

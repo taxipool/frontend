@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
+import React, { useEffect, useState } from 'react';
 import Main from './Main';
 import Login from './Login';
 import './App.css';
@@ -13,12 +13,23 @@ import Update from './Update';
 import Traffic from './TrafficLight';
 import Signup from './Signup';
 import View from './View';
-import Create from './Create';
+// import $ from 'jquery';
 
 function App() {
-  // if (window.location === '/') {
-  //   document.getElementById("header").style.display === "none";
-  // };
+  const [isLogin, setIsLogin] = useState(false)
+ 
+  useEffect(() => {
+    if(sessionStorage.getItem('user_id') === null){
+      console.log('isLogin ?? :: ', isLogin)
+    } else {
+      setIsLogin(true)
+      console.log('isLogin ?? :: ', isLogin)
+      if ( window.location.pathname == '/' ) {
+        window.location.href = '/main';
+   }
+    }
+  })
+  
   return (
     <BrowserRouter>
       <Topbar />
@@ -30,7 +41,6 @@ function App() {
         <Route path="signup/*" element={<Signup />} />
         <Route path="view/*" element={<View />} />
         <Route path="update/*" element={<Update />} />
-        <Route path="create/*" element={<Create />} />
       </Routes>
     </BrowserRouter>
   );

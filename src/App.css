@@ -36,21 +36,18 @@ iframe, video, embed, object {
 
 /* 기본 설정 */
 @font-face {
-  font-family: 'GongGothicMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+  font-family: 'KOTRAHOPE';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
-
 * {
-  font-family: 'GongGothicMedium';
-
+  font-family: 'KOTRAHOPE';
 }
-
+* {
+  cursor: url(../images/cur.cur), auto !important;
+}
 body {
-  background-size: 100vw;
-  background-repeat: no-repeat;
   background-color: #bdd7ee;
-  background-position: top;
   text-align: center;
 }

@@ -1,17 +1,21 @@
 import './TrafficLight.css';
- 
+
 function TrafficLight() {
+    // const con = document.getElementById("traffic");
+    // if ( window.location.pathname == '/' ) {
+    //     con.style.display = 'none';
+    // }
     return(
-        <div class="traffic-light">
-            <div class="top">
-                <a href="/login"><button class="login">로그인</button></a>
+        <div id="traffic" class="traffic-light">
+            <div class="traffic-top">
+                <a href="/login"><button class="top">로그인</button></a>
                 <button class="mid"></button>
-                <a href="/signup"><button class="signup">회원가입</button></a>
+                <a href="/signup"><button class="bottom">회원가입</button></a>
             </div>
 
-            <div class="middle"></div>
+            <div class="traffic-middle"></div>
 
-            <div class="bottom"></div>
+            <div class="traffic-bottom"></div>
         </div>
     )
 }

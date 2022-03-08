@@ -1,9 +1,7 @@
 .signup {
     height: 100vh;
     padding: 70px;
-    background-color: #bdd7ee;
-    margin-top: 60px;
-    text-align: center !important;
+    margin-top: 70px;
 }
 .signup .title {
     font-size: 30px;
@@ -17,22 +15,29 @@
     padding: 3px 10px;
     display: block;
     background-color: #ccc;
-    width: 150px;
+    width: 180px;
     margin: 0 auto;
     border: 3px solid #999;
+}
+.signup .check_input {
+    width: 122px;
+    margin-left: 0;
 }
 .signup input {
     background-color: #fff;
     border: 3px solid;
     padding: 3px 10px;
-    width: 150px;
+    width: 180px;
     margin: 8px;
 }
-.signup button {
-    background-color: black;
+.signup .btn {
+    background-color: #fff;
+    border: 3px solid;
+    padding: 3px;
+}
+.signup .singup_button {
+    background-color: #000;
     color: white;
-    width: 80px;
-    height: 30px;
-
-    font-size: medium;
+    padding: 7px 12px;
+    border: 2px solid #000;
 }
