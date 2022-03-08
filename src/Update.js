@@ -1,5 +1,40 @@
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import './Update.css';
- 
+
+const onClickUpdate = () => {
+    let obj = {
+        roomname: "myroom",
+        startpoint: "start",
+        endpoint: "end",
+        starttime: new Date(),
+        totalmember: 3,
+        currentmember: 1
+    };
+
+    let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
+
+    let config = {
+        headers: { Authorization: `Bearer ${accessToken}` }
+     };
+    
+    axios.put('http://taxipool.iptime.org:8080/api/rooms/1', obj, config)
+    .then(res => {
+            console.log(res);
+            if (res.status == 200)
+            {
+                alert('방 수정이 완료되었습니다!');
+            }
+            else
+            {
+                alert('방 수정에 실패했습니다.');
+            }
+            // token = sessionStorage.getItem('token');
+        }
+    )
+    .catch(err => console.log(err))
+}
+
 function Update() {
     return(
         <div class="update">
@@ -41,7 +76,7 @@ function Update() {
                 <a href="/view"><button class="cancel" type='button'>
                     취소
                 </button></a>
-                <a href="/view"><button class="complete" type='submit'>
+                <a href="/view"><button class="complete" type='submit' onClick={onClickUpdate}>
                     완료
                 </button></a>
             </div>
