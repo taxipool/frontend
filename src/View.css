@@ -77,3 +77,17 @@
 
     font-size: medium;
 }
+
+.view .modify {
+    background-color: gray;
+    border: 4px solid dimgray;
+    color: white;
+    width: 80px;
+    height: 30px;
+
+    margin-right: 20px;
+    margin-left: 290px;
+    margin-top: 20px;
+
+    font-size: medium;
+}
