@@ -10,6 +10,7 @@ import './App.css';
 import Topbar from './Topbar';
 import Start from './Start';
 import Update from './Update';
+import Create from './Create';
 import Traffic from './TrafficLight';
 import Signup from './Signup';
 import View from './View';
@@ -21,6 +22,11 @@ function App() {
   useEffect(() => {
     if(sessionStorage.getItem('user_id') === null){
       console.log('isLogin ?? :: ', isLogin)
+      // 나중에 지우기 시작
+      if ( window.location.pathname == '/' ) {
+        window.location.href = '/main';
+      }
+      // 이까지 지우기
     } else {
       setIsLogin(true)
       console.log('isLogin ?? :: ', isLogin)
@@ -39,6 +45,7 @@ function App() {
         <Route path="login/*" element={<Login />} />
         <Route path="main/*" element={<Main />} />
         <Route path="signup/*" element={<Signup />} />
+        <Route path="create/*" element={<Create />} />
         <Route path="view/*" element={<View />} />
         <Route path="update/*" element={<Update />} />
       </Routes>
