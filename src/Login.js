@@ -28,6 +28,7 @@ function Login() {
             }
         })
         .then(res => {
+            console.log(res)
             if (res.data.id === undefined){
                 alert('아이디 일치 x')
             } else if (res.data.id === null){
