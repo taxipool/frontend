@@ -13,6 +13,7 @@ import Update from './Update';
 import Traffic from './TrafficLight';
 import Signup from './Signup';
 import View from './View';
+import Create from './Create';
 // import $ from 'jquery';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="signup/*" element={<Signup />} />
         <Route path="view/*" element={<View />} />
         <Route path="update/*" element={<Update />} />
+        <Route path="create/*" eleement={<Create />} />
       </Routes>
     </BrowserRouter>
   );

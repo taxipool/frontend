@@ -9,38 +9,44 @@ function ride_button_click() {
 
 const View = () => {
     const [inputs, setInputs] = useState({
-        vroomname: "",
-        vstartpoint: "",
-        vendpoint: "",
-        vstarttime: new Date(),
-        vtotalmember: '',
-        vcurrentmember: '',
-        vreader: ''
+        vRoomname: "",
+        vStartpoint: "",
+        vEndpoint: "",
+        vStarttime: new Date(),
+        vTotalmember: '',
+        vCurrentmember: '',
+        vLeader: ''
     })
-    
 
-    const handlevRoomname = (e) => {
-        setInputRoomname(e.target.value)
-    }
- 
-    const handleInputPw = (e) => {
-        setInputPw(e.target.value)
+    const onInputChange = (e) => {
+        const { value, key } = e.target;
+        setInputs({
+            ...inputs,
+            [key] : value
+        })
     }
 
     useEffect(() => {
         let obj = {
             roomnum: "01"
         };
-        axios.get('https://taxipool.iptime.org:8080/api/rooms/${n}')
+
+        let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
+    
+        let config = {
+            headers: { Authorization: `Bearer ${accessToken}` }
+         };
+
+        axios.get(`https://taxipool.iptime.org:8080/api/rooms/${obj.roomnum}`, '', config)
         .then(res => {
                 console.log(res);
-                vRoomname = res.roomname;
-                vStartpoint = res.startpoint;
-                vEndpoint = res.endpoint;
-                vStarttime = res.starttime;
-                vTotalmember = res.totalmember;
-                vCurrentmember = res.currentmember;
-                vReader = 1;
+                inputs.vRoomname = res.roomname;
+                inputs.vStartpoint = res.startpoint;
+                inputs.vEndpoint = res.endpoint;
+                inputs.vStarttime = res.starttime;
+                inputs.vTotalmember = res.totalmember;
+                inputs.vCurrentmember = res.currentmember;
+                inputs.vLeader = res.leaderid; // 닉네임
 
                 // sessionStorage.setItem('token', res.token);
                 // token = sessionStorage.getItem('token');
@@ -56,17 +62,17 @@ const View = () => {
             <h2 class="title">ROOM</h2>
             <hr></hr>
             <div>
-                <label class="roomname">방제 : {vRoomname}</label>
+                <label class="roomname">방제 : {inputs.vRoomname}</label>
             </div>
             <div>
                 <label class="roomview">
                     <div class="maintext_1">[방정보]</div>
-                    <div>출 발 지 : {vStartpoint}</div>
-                    <div>도 착 지 : {vEndpoint}</div>
-                    <div>출발 날짜 : {vStarttime}</div>
+                    <div>출 발 지 : {inputs.vStartpoint}</div>
+                    <div>도 착 지 : {inputs.vEndpoint}</div>
+                    <div>출발 날짜 : {inputs.vStarttime}</div>
                     <div>출발 시간 : </div>
-                    <div>총 인 원 : {vTotalmember}</div>
-                    <div>현재 인원 : {vCurrentmember}</div>
+                    <div>총 인 원 : {inputs.vTotalmember}</div>
+                    <div>현재 인원 : {inputs.vCurrentmember}</div>
                 </label>
             </div>
             <div>
@@ -82,7 +88,7 @@ const View = () => {
                 </button>
                 <div>
                     {
-                        vReader == 1
+                        inputs.vLeader == 1
                         ? <a href="/Update"><button class="modify" type='button'>
                             수정</button></a>
                         : null
