@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Create.css';
 
+/*
+    - 칸 맞추기
+    - 날짜 포맷팅하기 (datepicker 이용)
+*/
+
 function Create() {
 
     const [roomname, setRoomname] = useState('')
@@ -23,6 +28,7 @@ function Create() {
             endpoint: endpoint,
             starttime: starttime,
             totalmember: totalmember,
+            createmember: 4 - totalmember,
         }
         let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
     
