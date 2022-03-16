@@ -3,6 +3,33 @@ import axios from 'axios';
 import './Update.css';
 
 const onClickUpdate = () => {
+    const [inputRoomname, setInputRoomname] = useState('')
+    const [inputStartpoint, setInputStartpoint] = useState('')
+    const [inputEndpoint, setInputEndpoint] = useState('')
+    const [inputStarttime, setInputStarttime] = useState('')
+    const [inputTotalmember, setInputTotalmember] = useState('')
+    
+    // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
+    const handleInputRoomname = (e) => {
+        setInputRoomname(e.target.value)
+    }
+    
+    const handleInputStartpoint = (e) => {
+        setInputStartpoint(e.target.value)
+    }
+
+    const handleInputEndpoint = (e) => {
+        setInputEndpoint(e.target.value)
+    }
+ 
+    const handleInputStarttime = (e) => {
+        setInputStarttime(e.target.value)
+    }
+
+    const handleInputTotalmember = (e) => {
+        setInputTotalmember(e.target.value)
+    }
+
     let obj = {
         roomname: "myroom",
         startpoint: "start",
@@ -46,8 +73,8 @@ function Update() {
                     <label class="totalmember" htmlFor='input_totalmember'>인원</label>
                 </div>
                 <div>
-                    <input class="roomname_i" type='text' name='input_roomname' placeholder="방제를 작성해주세요"/>
-                    <input class="totalmember_i" type='number' min="1" max="3" name='input_totalmember' placeholder="모집인원"/>
+                    <input class="roomname_i" type='text' name='input_roomname' value={inputRoomname} onChange={handleInputRoomname} placeholder="방제를 작성해주세요"/>
+                    <input class="totalmember_i" type='number' min="1" max="3" name='input_totalmember' value={inputTotalmember} onChange={handleInputTotalmember} placeholder="모집인원"/>
                 </div>
             </div>
             <div>

@@ -8,14 +8,30 @@ function ride_button_click() {
 }
 
 const View = () => {
-    const [vRoomname, vStartpoint, vEndpoint, vStarttime] = useState('');
-    const [vTotalmember, vCurrentmember, vReader] = useState();
+    const [inputs, setInputs] = useState({
+        vroomname: "",
+        vstartpoint: "",
+        vendpoint: "",
+        vstarttime: new Date(),
+        vtotalmember: '',
+        vcurrentmember: '',
+        vreader: ''
+    })
+    
+
+    const handlevRoomname = (e) => {
+        setInputRoomname(e.target.value)
+    }
+ 
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value)
+    }
 
     useEffect(() => {
         let obj = {
             roomnum: "01"
         };
-        axios.get('https://taxipool.iptime.org:8080/api/rooms/01')
+        axios.get('https://taxipool.iptime.org:8080/api/rooms/${n}')
         .then(res => {
                 console.log(res);
                 vRoomname = res.roomname;
