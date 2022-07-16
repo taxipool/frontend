@@ -50,20 +50,27 @@ function Login() {
  
     return(
         <div className="login">
-            <h1 className="title">LOGIN</h1>
-            <hr></hr>
-            <div>
-                <label htmlFor='input_id'>아이디</label>
-                <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
+            <div className='login-container'>
+                <h1 className="title">LOGIN</h1>
+                <div>
+                    <input placeholder='아이디' type='text' name='input_id' value={inputId} onChange={handleInputId} />
+                </div>
+                <div>
+                    <input placeholder='비밀번호' type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
+                </div>
+                <div className='stay-login'>
+                    <p><i class="xi-check-circle-o"></i> 로그인 상태 유지</p>
+                </div>
+                <div>
+                    <button type='button' onClick={onClickLogin}>로그인</button>
+                </div>
             </div>
+            
             <div>
-                <label htmlFor='input_pw'>비밀번호</label>
-                <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
-            </div>
-            <div>
-                <button type='button' onClick={onClickLogin}>로그인</button>
+                <p><a>비밀번호 찾기</a> | <a>아이디 찾기</a> | <a>회원가입</a></p>
             </div>
         </div>
+        
     )
 }
 
