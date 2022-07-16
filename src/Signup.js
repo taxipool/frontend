@@ -3,77 +3,93 @@ import axios from 'axios';
 import './Signup.css';
  
 function Signup() {
-    const [inputId, setInputId] = useState('');
-    const [inputPw, setInputPw] = useState('');
-    const [inputName, setInputName] = useState('');
-    const [inputNicname, setInputNicname] = useState('');
-    const [inputNum, setInputNum] = useState('');
+    // 통신
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [phonenumber, setPhonenumber] = useState('');
+    const [nickname, setNickname] = useState('');
+
+    const onIdHandler = (event) => {
+        setId(event.currentTarget.value)
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
+    const onNameHandler = (event) => {
+        setName(event.currentTarget.value)
+    }
+    const onPhonenumberHandler = (event) => {
+        setPhonenumber(event.currentTarget.value)
+    }
+    const onNicknameHandler = (event) => {
+        setNickname(event.currentTarget.value)
+    }
  
-    const handleInputId = (e) => {
-        setInputId(e.target.value)
-    }
-    const handleInputPw = (e) => {
-        setInputPw(e.target.value)
-    }
-    const handleInputName = (e) => {
-        setInputName(e.target.value)
-    }
-    const handleInputNicname = (e) => {
-        setInputNicname(e.target.value)
-    }
-    const handleInputNum = (e) => {
-        setInputNum(e.target.value)
-    }
+    useEffect(() => {
+    },
+    []);
  
-    const onClickSignup = () => {
-        axios.post('http://taxipool.iptime.org:8080/api/rooms/', null, {
+    const onClickSignup = (event) => {
+        // 기본 클릭 동작 방지
+        event.preventDefault()
+        axios.post('http://kittaxipool.iptime.org:3000/api/user/', null, {
             params: {
-            'user_id': inputId,
-            'user_pw': inputPw
+            'id': id,
+            'password': password,
+            'name': name,
+            'password': password,
+            'phonenumber': phonenumber,
+            'nickname': nickname,
             }
         })
         .then(res => {
+            // 회원가입 실패
+            if (res.status === 400){
+                console.log('회원가입 실패')
+                alert('회원가입을 실패했습니다. 입력하신 내용을 다시 확인해주세요.')
+            }
+            // 회원가입 성공
+            else if (res.status === 200) {
+                console.log('회원가입 성공')
+                // href
+                window.location.href="/login";
+            }
             console.log(res);
             window.location.href="/login";
         })
         .catch(err => {
-            alert("회원가입 실패!!");
+            alert("네트워크가 불안정합니다.");
             console.log(err);
         });
     }
  
-    useEffect(() => {
-        axios.post('http://taxipool.iptime.org:8080/api/user/')
-        .then(res => console.log(res))
-        .catch(res => console.log('통신 실패!!'))
-    },
-    [])
- 
+    // 디자인
     return(
         <div class="signup">
             <h2 class="title">SIGNUP</h2>
             <hr></hr>
             <div>
-                <label htmlFor='input_id'>아이디</label>
-                <input placeholder="abcde" maxLength="10" class="check_input" type='text' name='input_id' value={inputId} onChange={handleInputId} />
+                <label htmlFor='id'>아이디</label>
+                <input placeholder="abcde" maxLength="10" class="check_input" type='text' name='id' value={id} onChange={onIdHandler} />
                 <button class="btn">중복 확인</button>
             </div>
             <div>
-                <label htmlFor='input_pw'>비밀번호</label>
-                <input placeholder="********" maxLength="20" type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
+                <label htmlFor='password'>비밀번호</label>
+                <input placeholder="********" maxLength="20" type='password' name='password' value={password} onChange={onPasswordHandler} />
             </div>
             <div>
-                <label htmlFor='input_nickname'>닉네임</label>
-                <input maxLength="6" placeholder="택시풀" class="check_input" type='text' value={inputNicname} onChange={handleInputNicname} />
+                <label htmlFor='name'>이름</label>
+                <input maxLength="6" placeholder="홍길동" class="check_input" type='text' name='name' value={name} onChange={onNameHandler} />
                 <button class="btn">중복 확인</button>
             </div>
             <div>
-                <label htmlFor='input_name'>이름</label>
-                <input placeholder="홍길동" type='text' value={inputName} onChange={handleInputName} />
+                <label htmlFor='phonenumber'>전화번호</label>
+                <input placeholder="010-0000-0000" type='text' name='phonenumber' value={phonenumber} onChange={onPhonenumberHandler} />
             </div>
             <div>
-                <label htmlFor='input_num'>전화번호</label>
-                <input placeholder="010-0000-0000" type='text' value={inputNum} onChange={handleInputNum} />
+                <label htmlFor='nickname'>닉네임</label>
+                <input placeholder="택시풀" type='text' name='nickname' value={nickname} onChange={onNicknameHandler} />
             </div>
             <div>
                 <button class="singup_button" type='button' onClick={onClickSignup}>회원가입</button>
