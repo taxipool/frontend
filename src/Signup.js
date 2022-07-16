@@ -33,16 +33,14 @@ function Signup() {
     const onClickSignup = (event) => {
         // 기본 클릭 동작 방지
         event.preventDefault()
-        axios.post('http://kittaxipool.iptime.org:3000/api/user/', null, {
-            params: {
-            'id': id,
-            'password': password,
-            'name': name,
-            'password': password,
-            'phonenumber': phonenumber,
-            'nickname': nickname,
-            }
-        })
+        let userObj = {
+            id: id,
+            password: password,
+            name: name,
+            phonenumber: phonenumber,
+            nickname: nickname
+         };
+         axios.post("http://kittaxipool.iptime.org:3000/api/user/member", userObj)
         .then(res => {
             // 회원가입 실패
             if (res.status === 400){
