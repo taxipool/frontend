@@ -4,46 +4,45 @@ import './Login.css';
  
 function Login() {
     // 통신
-    const token = JSON.parse(sessionStorage.getItem("access_token"));
-    const [inputId, setInputId] = useState('')
-    const [inputPw, setInputPw] = useState('')
-    const handleInputId = (e) => {
-        setInputId(e.target.value)
+    const [id, setId] = useState('')
+    const [password, setPassword] = useState('')
+
+    const onIdHandler = (event) => {
+        setId(event.currentTarget.value)
     }
-    const handleInputPw = (e) => {
-        setInputPw(e.target.value)
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
     }
  
     useEffect(() => {
     },
     []);
 
-    const onClickLogin = () => {
-        // post
-        axios.post('http://kittaxipool.iptime.org:3000/api/user/', null, {
-            params: {
-            'user_id': inputId,
-            'user_pw': inputPw
-            },
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
+    const onClickLogin = (event) => {
+        // 기본 클릭 동작 방지
+        event.preventDefault()
 
+        let userObj = {
+            id: id,
+            password: password,
+         };
+         axios.post("http://kittaxipool.iptime.org:3000/api/user/", userObj)
         .then(res => {
             // 아이디 또는 비번 일치 x
             if (res.status === 400){
                 console.log('로그인 실패')
                 alert('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.')
-                // href
-                window.location.href="/main";
             }
             // 로그인 성공
             else if (res.status === 200) {
-                console.log(token, '로그인 성공')
-                let token = res.data.token;
-                sessionStorage.setItem("access_token", token);
-                sessionStorage.setItem('user_id', inputId)
+                // console.log(token, '로그인 성공')
+                console.log('로그인 성공')
+                const accessToken = res.data.token;
+                setCookie("is_login", `${accessToken}`);
+                // sessionStorage.setItem("access_token", accessToken);
+                // sessionStorage.setItem('user_id', inputId)
+                // href
+                window.location.href="/main";
             }
         })
         .catch(err => {
@@ -58,10 +57,10 @@ function Login() {
             <div className='login-container'>
                 <h1 className="title">LOGIN</h1>
                 <div>
-                    <input placeholder='아이디' type='text' name='input_id' value={inputId} onChange={handleInputId} />
+                    <input placeholder='아이디' type='text' name='id' value={id} onChange={onIdHandler} />
                 </div>
                 <div>
-                    <input placeholder='비밀번호' type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
+                    <input placeholder='비밀번호' type='password' name='password' value={password} onChange={onPasswordHandler} />
                 </div>
                 <div className='stay-login'>
                     <p><i class="xi-check-circle-o"></i> 로그인 상태 유지</p>

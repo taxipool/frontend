@@ -33,6 +33,7 @@ function Signup() {
     const onClickSignup = (event) => {
         // 기본 클릭 동작 방지
         event.preventDefault()
+        
         let userObj = {
             id: id,
             password: password,
