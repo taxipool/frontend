@@ -4,89 +4,24 @@ import './Main.css';
 import icon from './icon.png'
 
 function Main() {
-  // const [starttime, totalmember, createtime] = useState(null);
-  // const [data, setData, leaderid, roomname, startpoint, endpoint] = useState('');
+  const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   if (!sessionStorage.getItem("token")) {
-  //     this.isLogin = false;
-  //   } else {
-  //     this.isLogin = true;
-  //   }
+  const getPosts = () => {
+    axios.get('http://kittaxipool.iptime.org:3000/api/rooms')
+    .then((res) => {
+      setPosts(res.data);
+    })
+    .catch(err => console.log(err, '통신 실패!!'))
+  }
 
-  //   axios.get('http://taxipool.iptime.org:8080/api/rooms/')
-  //   .then(res => setData(res.data))
-  //   .catch(res => console.log('통신 실패!!'))
-  // },
-  // [])
+  useEffect(getPosts, []);
   
   return(
     <div className="main">
       <h2 class="title">LIST</h2>
       <hr></hr>
-      <ul>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            {/* <div>{`장소: ${endpoint}`}</div>
-            <div>날짜: </div> */}
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            <div>장소: </div>
-            <div>날짜: </div>
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            <div>장소: </div>
-            <div>날짜: </div>
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            <div>장소: </div>
-            <div>날짜: </div>
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            <div>장소: </div>
-            <div>날짜: </div>
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
-        <li>
-          <img src={icon} className="icon"></img><br/>
-          <div className="wrap">
-            <div>장소: </div>
-            <div>날짜: </div>
-            <div>시간: </div>
-            <div>1/4</div>
-          </div>
-        </li>
 
-        <ul class="pagination">
-          <button class="page_btn">◀</button>
-          <li>1</li>/
-          <li>5</li>
-          <button class="page_btn">▶</button>
-        </ul>
-      </ul>
+      <li items={posts}/>
 
       <form className="search">
         <p class="search-title">검색</p>

@@ -26,21 +26,19 @@ function Login() {
             id: id,
             password: password,
          };
-         axios.post("http://kittaxipool.iptime.org:3000/api/user/", userObj)
+         axios.post("http://kittaxipool.iptime.org:3000/api/user/login", userObj)
         .then(res => {
             // 아이디 또는 비번 일치 x
             if (res.status === 400){
-                console.log('로그인 실패')
-                alert('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.')
+                console.log('로그인 실패');
+                alert('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.');
             }
             // 로그인 성공
             else if (res.status === 200) {
-                // console.log(token, '로그인 성공')
-                console.log('로그인 성공')
-                const accessToken = res.data.token;
-                setCookie("is_login", `${accessToken}`);
-                // sessionStorage.setItem("access_token", accessToken);
-                // sessionStorage.setItem('user_id', inputId)
+                console.log(res.data.token, '로그인 성공');
+                // const accessToken = res.data.token;
+                const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc";
+                sessionStorage.setItem("access_token", accessToken);
                 // href
                 window.location.href="/main";
             }
