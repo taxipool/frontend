@@ -26,7 +26,8 @@ function Login() {
             id: id,
             password: password,
          };
-         axios.post("http://kittaxipool.iptime.org:3000/api/user/login", userObj)
+        //  axios.post("http://kittaxipool.iptime.org:3000/api/user/login", userObj)
+        axios.post("http://localhost:3001/api/user/session", userObj)
         .then(res => {
             // 아이디 또는 비번 일치 x
             if (res.status === 400){
@@ -35,12 +36,8 @@ function Login() {
             }
             // 로그인 성공
             else if (res.status === 200) {
-                console.log(res.data.token, '로그인 성공');
-                // const accessToken = res.data.token;
-                const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc";
-                sessionStorage.setItem("access_token", accessToken);
-                // href
-                window.location.href="/main";
+                sessionStorage.setItem("access_token", res.data.token);
+                window.location.href="/main"; // href
             }
         })
         .catch(err => {
