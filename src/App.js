@@ -20,7 +20,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
  
   useEffect(() => {
-    if(sessionStorage.getItem('user_id') === null){
+    if(sessionStorage.getItem('access_token') === null){
       console.log('isLogin ?? :: ', isLogin)
     } else {
       setIsLogin(true)

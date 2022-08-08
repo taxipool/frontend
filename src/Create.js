@@ -30,15 +30,14 @@ function Create() {
             totalmember: totalmember,
             createmember: 4 - totalmember,
         }
-        let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
-    
+        let accessToken = sessionStorage.getItem("access_token");
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
          };
         
         console.log(obj);
         // axios.post('http://taxipool.iptime.org:8080/api/rooms', inputs, config)
-        axios.post('http://localhost:1000/api/rooms', obj, config)
+        axios.post('http://localhost:3001/api/rooms', obj, config)
         .then(res => {
                 console.log(res);
                 if (res.status == 200)
@@ -50,7 +49,6 @@ function Create() {
                 {
                     alert('방 등록에 실패했습니다.');
                 }
-                // token = sessionStorage.getItem('token');
             }
         )
         .catch(err => console.log(err))

@@ -7,8 +7,10 @@ function Main() {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    axios.get('http://kittaxipool.iptime.org:3000/api/rooms')
+    // axios.get('http://kittaxipool.iptime.org:3000/api/rooms')
+    axios.get('http://localhost:3001/api/rooms')
     .then((res) => {
+      console.log(res.data)
       setPosts(res.data);
     })
     .catch(err => console.log(err, '통신 실패!!'))
