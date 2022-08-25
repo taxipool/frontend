@@ -6,10 +6,7 @@ import './Update.css';
     - 칸 다시 맞추기 ok
     - 뺄 거 빼기
     - 가능하면 datepicker 이용
-    - 완료됐을 때 페이지 이동 ok
-
-    - 완료됐을 때 페이지 이동 되는지 테스트
-    - 데이터 불러오기 잘 뜨는지 테스트
+    - 완료됐을 때 페이지 이동
 */
 
 function Update() {
@@ -93,7 +90,8 @@ function Update() {
                 <div>
                     <label class="startdate" htmlFor='input_startdate'>출발 날짜</label>
                     <br></br>
-                    <input type='date' value="2022-09-01" min="2022-08-25" max="2030-12-31" onChange={handleStarttime}/>
+                    <input class="startdate_i" type='number' min="1" max="12" name='input_startdate' placeholder="월"/>
+                    <input class="startdate_i" type='number' min="1" max="31" name='input_startdate' placeholder="일"/>
                 </div>
                 <div>
                     <label class="starttime" htmlFor='input_starttime' value = {starttime} onChange={handleStarttime}>출발 시간</label>
