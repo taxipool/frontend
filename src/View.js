@@ -52,12 +52,14 @@ function View() {
         if (isRide === true)
         {
             document.getElementsByClassName("ride").style.display = "none";
-            // document.getElementsByClassName("rideNo").style.display = "block";
+            isRide = false;
+            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${roomnum}`, isRide)
         }
         else
         {
             document.getElementsByClassName("rideNo").style.display = "none";
-            // document.getElementsByClassName("ride").style.display = "block";
+            isRide = true;
+            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${roomnum}`, isRide)
         }
 
         if (isLeader === true)
@@ -68,6 +70,7 @@ function View() {
         {
             document.getElementsByClassName("modify").style.display = "none";
         }
+
 
         let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
         

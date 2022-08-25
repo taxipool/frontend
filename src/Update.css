@@ -39,7 +39,7 @@ label {
     background-color: #fff;
     border: 3px solid;
     padding: 3px 3px;
-    margin: 10px 10px 10px 0px !important;
+    margin: 0 auto !important;
 }
 
 .update .roomname_i, .startpoint_i, .endpoint_i {

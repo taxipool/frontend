@@ -3,8 +3,8 @@ import axios from 'axios';
 import './Create.css';
 
 /*
-    - 칸 맞추기
-    - 날짜 포맷팅하기 (datepicker 이용)
+    - 칸 맞추기 ok
+    - 날짜 포맷팅하기 (datepicker 이용) ok
 */
 
 function Create() {
@@ -37,7 +37,7 @@ function Create() {
         
         console.log(obj);
         // axios.post('http://taxipool.iptime.org:8080/api/rooms', inputs, config)
-        axios.post('http://localhost:3001/api/rooms', obj, config)
+        axios.post(`http://localhost:3001/api/rooms`, obj, config)
         .then(res => {
                 console.log(res);
                 if (res.status == 200)
@@ -59,36 +59,33 @@ function Create() {
             <h2 class="title">CREATE</h2>
             <hr></hr>
             <div>
-                <div>
-                    <label class="roomname" htmlFor='input_roomname'>방제</label>
-                    <label class="totalmember" htmlFor='input_totalmember'>인원</label>
-                </div>
-                <div>
-                    <input class="roomname_i" type='text' name='input_roomname' placeholder="방제를 작성해주세요" onChange={handleRoomname} value={roomname} />
-                    <input class="totalmember_i" type='number' min="1" max="3" name='input_totalmember' placeholder="모집인원" onChange={handleTotalmember} value={totalmember} />
-                </div>
+                <label>방제</label>
+                <br></br>
+                <input type='text' placeholder="방제를 작성해주세요" onChange={handleRoomname} value={roomname} />
             </div>
             <div>
-                <div>
-                    <label class="startpoint" htmlFor='input_startpoint'>출발지</label>
-                    <label class="endpoint" htmlFor='input_endpoint'>도착지</label>
-                </div>
-                <div>
-                    <input class="startpoint_i" type='text' name='input_startpoint' placeholder="자세히 작성해주세요" onChange={handleStartpoint} value={startpoint} />
-                    <input class="endpoint_i" type='text' name='input_endpoint' placeholder="자세히 작성해주세요" onChange={handleEndpoint} value={endpoint} />
-                </div>
+                <label>인원</label>
+                <br></br>
+                <input type='number' min="1" max="3" placeholder="모집인원" onChange={handleTotalmember} value={totalmember} />
             </div>
             <div>
-                <div>
-                    <label class="startdate" htmlFor='input_startdate'>출발 날짜</label>
-                    <label class="starttime" htmlFor='input_starttime'>출발 시간</label>
-                </div>
-                <div>
-                    <input class="startdate_ia" type='number' min="1" max="12" name='input_startdate' placeholder="월" onChange={handleStarttime} value={starttime} />
-                    <input class="startdate_ib" type='number' min="1" max="31" name='input_startdate' placeholder="일"/>
-                    <input class="starttime_ia" type='number' min="1" max="24" name='input_starttime' placeholder="시(24시 기준)"/>
-                    <input class="starttime_ib" type='number' min="0" max="59" name='input_starttime' placeholder="분"/>
-                </div>
+                <label>출발지</label>
+                <br></br>
+                <input type='text' placeholder="자세히 작성해주세요" onChange={handleStartpoint} value={startpoint} />
+            </div>
+            <div>
+                <label>도착지</label>
+                <br></br>
+                <input type='text' placeholder="자세히 작성해주세요" onChange={handleEndpoint} value={endpoint} />
+            </div>
+            <label>출발 날짜</label>
+            <br></br>
+            <input type='date' value="2022-09-01" min="2022-08-25" max="2030-12-31" onChange={handleStarttime}/>
+            <br></br>
+            <label>출발 시간</label>
+            <br></br>
+            <div>
+                <input type='time' vlaue="13:30"/>
             </div>
             <div>
                 <button class="cancel" type='button'>
