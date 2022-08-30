@@ -92,7 +92,7 @@ function Signup() {
                 <input placeholder="택시풀" type='text' name='nickname' value={nickname} onChange={onNicknameHandler} />
             </div>
             <div>
-                <button class="singup_button" type='button' onClick={onClickSignup}>회원가입</button>
+                <button class="signup_button" type='button' onClick={onClickSignup}>회원가입</button>
             </div>
         </div>
     )
