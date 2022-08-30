@@ -3,8 +3,10 @@ import axios from 'axios';
 import './Create.css';
 
 /*
-    - 칸 맞추기 ok
-    - 날짜 포맷팅하기 (datepicker 이용) ok
+    - 칸 맞추기 ok 8/25
+    - 날짜 포맷팅하기 (datepicker 이용) ok 8/25
+
+    - 글 작성 테스트
 */
 
 function Create() {
