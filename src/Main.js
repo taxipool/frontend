@@ -33,10 +33,10 @@ function GetData() {
         <CommonTableColumn>{item.roomname}</CommonTableColumn>
         <CommonTableColumn>{item.startpoint}</CommonTableColumn>
         <CommonTableColumn>{item.endpoint}</CommonTableColumn>
-        <CommonTableColumn>{item.starttime}</CommonTableColumn>
+        <CommonTableColumn>{item.starttime.slice(0,10)}</CommonTableColumn>
+        <CommonTableColumn>{item.starttime.slice(11,13)}시 {item.starttime.slice(14,16)}분</CommonTableColumn>
         <CommonTableColumn>{item.currentmember}</CommonTableColumn>
         <CommonTableColumn>{item.totalmember}</CommonTableColumn>
-        <CommonTableColumn>{item.createtime}</CommonTableColumn>
       </tr>
     )
   });
@@ -52,7 +52,7 @@ function Main() {
       <h2 class="title">LIST</h2>
       <hr></hr>
 
-      <CommonTable headersName={['방장', '제목', '출발지', '도착지', '시각', '현재 인원', '모집 인원', '생성일']}>
+      <CommonTable headersName={['방장', '제목', '출발지', '도착지', '출발 날짜', '출발 시간', '현재 인원', '모집 인원']}>
         {item}
       </CommonTable>
 

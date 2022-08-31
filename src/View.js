@@ -76,23 +76,41 @@ function View() {
             <h2 class="title">ROOM</h2>
             <hr></hr>
             <div>
-                <label class="roomname">방제 : {roomname}</label>
+                <label>방제</label>
+                <br></br>
             </div>
             <div>
-                <label class="maintext">방정보</label>
-                <br></br>
-                <div>출 발 지 : {startpoint}</div>
-                <div>
-                    <label>도 착 지 : {endpoint}</label>
-                </div>
-                <div>출발 날짜 : {starttime.slice(0,10)}</div>
-                <div>출발 시간 : {starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
-                <div>총 인 원 : {totalmember+"명"}</div>
-                <div>현재 인원 : {currentmember}</div>
+                <label>출발지</label>
+                <div class="value">{startpoint}</div>
+            </div>
+                <label>도착지</label>
+                <div class="value">{endpoint}</div>
+            <div>
+                <label>출발 날짜</label>
+                <div class="value">{starttime.slice(0,10)}</div>
+            </div>
+            <div>
+                <label>출발 시간</label>
+                <div class="value">{starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
+            </div>
+            <div>
+                <label>총인원</label>
+                <div class="value">{totalmember+"명"}</div>
+            </div>
+            <div>
+                <label>현재 인원</label>
+                <div class="value">{currentmember}</div>
+            </div>
+            <div>
+                <label>생성 날짜</label>
+                <div class="value">{currentmember}</div>
+            </div>
+            <div>
+                <label>생성 시간</label>
+                <div class="value">{currentmember}</div>
             </div>
             <div>
                 <label class="comment"></label>
-                    
             </div>
             <div>
                 <a href="/main"><button class="list" type='button'>
