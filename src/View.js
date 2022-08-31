@@ -4,9 +4,12 @@ import './View.css';
 
 /*
     - 댓글 구현
-    - 수정, 삭제 => 방장만
+    - 수정, 삭제 => 방장만 ok
     - 타기, 내리기 바뀌는 거 ok
     - 버튼 클릭했을 때 페이지 이동 ok
+
+    - 타기, 내리기 isRide 값 변경 통신
+    - 방장 혼자일 때만 수정 버튼 뜨도록 조건 추가
 */
 
 function View() {
@@ -14,6 +17,8 @@ function View() {
     const [roomname, setRoomname] = useState('')
     const [startpoint, setStartpoint] = useState('')
     const [endpoint, setEndpoint] = useState('')
+
+
     const [starttime, setStarttime] = useState('')
     const [totalmember, setTotalmember] = useState('')
     const [currentmember, setCurrentmember] = useState('')
@@ -21,10 +26,10 @@ function View() {
     const [isRide, setIsRide] = useState(true)
 
     useEffect(() => {
-        let accessToken = sessionStorage.getItem("access_token")
+        let accessToken = sessionStorage.getItem("access_token");
     
         let config = {
-            headers: { Authorization: `Bearer ${accessToken}` }
+            headers: { Authorization: `Bearer ${accessToken}`}
          };
 
         axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
@@ -51,7 +56,6 @@ function View() {
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
         };
-    
         axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}?isRide=${isRide? false:true}`, isRide, config)
         .then((res) => {
             console.log(res);
@@ -66,7 +70,7 @@ function View() {
     const OnClickModify = (roomno) => {
         window.location.href = '/update/'+roomno;
     }
-
+    
     return(
         <div class="view">
             <h2 class="title">ROOM</h2>
@@ -75,15 +79,16 @@ function View() {
                 <label class="roomname">방제 : {roomname}</label>
             </div>
             <div>
-                <label class="roomview">
-                    <div class="maintext_1">[방정보]</div>
-                    <div>출 발 지 : {startpoint}</div>
-                    <div>도 착 지 : {endpoint}</div>
-                    <div>출발 날짜 : {starttime.slice(0,10)}</div>
-                    <div>출발 시간 : {starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
-                    <div>총 인 원 : {totalmember+"명"}</div>
-                    <div>현재 인원 : {currentmember}</div>
-                </label>
+                <label class="maintext">방정보</label>
+                <br></br>
+                <div>출 발 지 : {startpoint}</div>
+                <div>
+                    <label>도 착 지 : {endpoint}</label>
+                </div>
+                <div>출발 날짜 : {starttime.slice(0,10)}</div>
+                <div>출발 시간 : {starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
+                <div>총 인 원 : {totalmember+"명"}</div>
+                <div>현재 인원 : {currentmember}</div>
             </div>
             <div>
                 <label class="comment"></label>

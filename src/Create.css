@@ -5,7 +5,7 @@
     border-spacing: 0;
   }
   
-  .common-table-header-column {
+.common-table-header-column {
     border-bottom: 1px solid #e8e8e8;
     padding: 0;
     font-size: 16px;
@@ -13,18 +13,14 @@
     font-weight: bold;
   }
   
-  .common-table-row:hover {
+.common-table-row:hover {
     background-color: #eceaea;
     cursor: pointer;
   }
   
-  .common-table-column {
+.common-table-column {
     padding: 10px 5px;
   }
-
-
-  /* */
-
 
 .create {
     height: 100vh;
@@ -42,82 +38,22 @@
     margin: 20px 30%;
 }
 
-/*.create label {
-    text-align: left;
-    padding: 3px 10px;
-    display: inline;
-    background-color: #ccc;
-    width: 150px;
-    margin: 0 auto;
-    border: 3px solid #999;
+label, input {
+    display: inline-block !important;
+    width: 250px !important;
+    margin: 5px auto 5px auto;
+    padding: 3px 3px;
 }
-*/
 
 .create label {
     text-align: left;
-    display: inline;
     background-color: #ccc;
-    /*width: 150px;
-    margin: 0 auto;*/
     border: 3px solid #999;
 }
 
 .create input {
     background-color: #fff;
     border: 3px solid;
-    padding: 3px 3px;
-}
-
-.create .roomname {
-    padding: 3px 180px;
-    margin-right: 5px;
-}
-
-.create .totalmember {
-    padding: 3px 20px;
-}
-
-.create .startpoint {
-    padding: 3px 93px;
-    margin-right: 5px;
-}
-
-.create .endpoint {
-    padding: 3px 93px;
-}
-
-.create .startdate {
-    padding: 3px 84px;
-    margin-right: 5px;
-}
-
-.create .starttime {
-    padding: 3px 84px;
-}
-
-.create .roomname_i {
-    width: 395px;
-    margin: 10px 5px 10px 0px;
-}
-
-.create .totalmember_i {
-    width: 75px;
-    margin: 10px 0px;
-}
-
-.create .startpoint_i {
-    width: 236px;
-    margin: 10px 5px 10px 0px;
-}
-
-.create .endpoint_i {
-    width: 236px;
-    margin: 10px 0px;
-}
-
-.create .startdate_ia, .startdate_ib, .starttime_ia, .starttime_ib {
-    width: 116px;
-    margin: 10px 2.5px;
 }
 
 .create .cancel {

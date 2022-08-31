@@ -14,33 +14,14 @@
     margin: 20px 30%;
 }
 
-/*.update label {
-    text-align: left;
-    padding: 3px 10px;
-    display: inline;
-    background-color: #ccc;
-    width: 150px;
-    margin: 0 auto;
-    border: 3px solid #999;
-}
-*/
-
 .view label {
     text-align: left;
     display: inline-block;
     width: 500px;
-    /*margin: 0 auto;*/
-}
-
-.view .roomname {
     background-color: #ccc;
     border: 3px solid #999;
-}
-
-.view .maintext_1, .comment {
-    font-size: large;
-    text-align: center;
-    margin-bottom: 5px;
+    padding-left: 10px;
+    /*margin: 0 auto;*/
 }
 
 .view .roomview, .comment {
@@ -66,7 +47,19 @@
 .view .ride {
     background-color: mediumblue;
     border: 4px solid navy;
-    color: #000000;
+    color: white;
+    width: 80px;
+    height: 30px;
+
+    margin-top: 20px;
+
+    font-size: medium;
+}
+
+.view .rideNo {
+    background-color: red;
+    border: 4px solid darkred;
+    color: white;
     width: 80px;
     height: 30px;
     margin-right: 10px;
