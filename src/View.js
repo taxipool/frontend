@@ -22,10 +22,10 @@ function View() {
     const [isRide, setIsRide] = useState(true)
 
     useEffect(() => {
-        let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
+        let accessToken = sessionStorage.getItem("access_token");
     
         let config = {
-            headers: { Authorization: `Bearer ${accessToken}` }
+            headers: { Authorization: `Bearer ${accessToken}`}
          };
 
         axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
@@ -53,13 +53,13 @@ function View() {
         {
             document.getElementsByClassName("ride").style.display = "none";
             isRide = false;
-            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${roomnum}`, isRide)
+            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, isRide)
         }
         else
         {
             document.getElementsByClassName("rideNo").style.display = "none";
             isRide = true;
-            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${roomnum}`, isRide)
+            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, isRide)
         }
 
         if (isLeader === true)
@@ -71,16 +71,14 @@ function View() {
             document.getElementsByClassName("modify").style.display = "none";
         }
 
-
         let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
         
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
         };
-    
-        let roomnum = 36;
-    
-        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/${roomnum}`, isRide, config)
+        
+        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/45`, isRide, config)
+        // {roomnum}
         .then((res) => {
             console.log(res);
             alert('정상적으로 신청되었습니다!');
@@ -99,15 +97,16 @@ function View() {
                 <label class="roomname">방제 : {roomname}</label>
             </div>
             <div>
-                <label class="roomview">
-                    <div class="maintext_1">[방정보]</div>
-                    <div>출 발 지 : {startpoint}</div>
-                    <div>도 착 지 : {endpoint}</div>
-                    <div>출발 날짜 : {starttime.slice(0,10)}</div>
-                    <div>출발 시간 : {starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
-                    <div>총 인 원 : {totalmember+"명"}</div>
-                    <div>현재 인원 : {currentmember}</div>
-                </label>
+                <label class="maintext">방정보</label>
+                <br></br>
+                <div>출 발 지 : {startpoint}</div>
+                <div>
+                    <label>도 착 지 : {endpoint}</label>
+                </div>
+                <div>출발 날짜 : {starttime.slice(0,10)}</div>
+                <div>출발 시간 : {starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
+                <div>총 인 원 : {totalmember+"명"}</div>
+                <div>현재 인원 : {currentmember}</div>
             </div>
             <div>
                 <label class="comment"></label>

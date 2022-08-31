@@ -37,7 +37,7 @@ function Create() {
         
         console.log(obj);
         // axios.post('http://taxipool.iptime.org:8080/api/rooms', inputs, config)
-        axios.post(`http://localhost:3001/api/rooms`, obj, config)
+        axios.post(`http://kittaxipool.iptime.org:3000/api/rooms${window.location.pathname.slice(8, )}`, obj, config)
         .then(res => {
                 console.log(res);
                 if (res.status == 200)
@@ -78,19 +78,14 @@ function Create() {
                 <br></br>
                 <input type='text' placeholder="자세히 작성해주세요" onChange={handleEndpoint} value={endpoint} />
             </div>
-            <label>출발 날짜</label>
+            <label>출발 날짜 및 시간</label>
             <br></br>
-            <input type='date' value="2022-09-01" min="2022-08-25" max="2030-12-31" onChange={handleStarttime}/>
-            <br></br>
-            <label>출발 시간</label>
+            <input type='datetime-local' min="2022-08-25 00:00" max="2030-12-31 23:59" onChange={handleStarttime} vlaue={starttime}/>
             <br></br>
             <div>
-                <input type='time' vlaue="13:30"/>
-            </div>
-            <div>
-                <button class="cancel" type='button'>
+                <a href="/main"><button class="cancel" type='button'>
                     취소
-                </button>
+                </button></a>
                 <button class="complete" type='submit' onClick={OnClickCreate}>
                     완료
                 </button>

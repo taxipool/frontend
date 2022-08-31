@@ -1,3 +1,27 @@
+.common-table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-spacing: 0;
+}
+  
+.common-table-header-column {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0;
+    font-size: 16px;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+  
+.common-table-row:hover {
+    background-color: #eceaea;
+    cursor: pointer;
+}
+  
+.common-table-column {
+    padding: 10px 5px;
+}
+
 .update {
     height: 100vh;
     padding: 70px;
@@ -14,40 +38,22 @@
     margin: 20px 30%;
 }
 
-/*.update label {
+label, input {
+    display: inline-block !important;
+    width: 250px !important;
+    margin: 5px auto 5px auto;
+    padding: 3px 3px;
+}
+
+.update label {
     text-align: left;
-    padding: 3px 10px;
-    display: inline;
     background-color: #ccc;
-    width: 150px;
-    margin: 0 auto;
     border: 3px solid #999;
-}
-*/
-
-label {
-    padding-left: 10px;
-}
-
-.a {
-    width: 230px;
-    margin: 0 auto;
-    text-align: left;
 }
 
 .update input {
     background-color: #fff;
     border: 3px solid;
-    padding: 3px 3px;
-    margin: 0 auto !important;
-}
-
-.update .roomname_i, .startpoint_i, .endpoint_i {
-    width: 250px !important;
-}
-
-.update .totalmember_i, .startdate_i {
-    width: 80px !important;
 }
 
 .update .cancel {

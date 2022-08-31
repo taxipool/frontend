@@ -38,17 +38,6 @@
     margin: 20px 30%;
 }
 
-/*.create label {
-    text-align: left;
-    padding: 3px 10px;
-    display: inline;
-    background-color: #ccc;
-    width: 150px;
-    margin: 0 auto;
-    border: 3px solid #999;
-}
-*/
-
 label, input {
     display: inline-block !important;
     width: 250px !important;
@@ -65,11 +54,6 @@ label, input {
 .create input {
     background-color: #fff;
     border: 3px solid;
-}
-
-.create .startdate_day, .starttime_min {
-    width: 120px !important;
-    margin-left: 5px !important;
 }
 
 .create .cancel {
