@@ -27,8 +27,7 @@ function Create() {
             startpoint: startpoint,
             endpoint: endpoint,
             starttime: starttime,
-            totalmember: totalmember,
-            createmember: 4 - totalmember,
+            totalmember: totalmember
         }
         let accessToken = sessionStorage.getItem("access_token");
         let config = {
@@ -36,8 +35,7 @@ function Create() {
          };
         
         console.log(obj);
-        // axios.post('http://taxipool.iptime.org:8080/api/rooms', inputs, config)
-        axios.post('http://localhost:3001/api/rooms', obj, config)
+        axios.post('http://kittaxipool.iptime.org:3000/api/rooms', obj, config)
         .then(res => {
                 console.log(res);
                 if (res.status == 200)

@@ -26,8 +26,8 @@ function Login() {
             id: id,
             password: password,
          };
-        //  axios.post("http://kittaxipool.iptime.org:3000/api/user/login", userObj)
-        axios.post("http://localhost:3001/api/user/session", userObj)
+        axios.post("http://kittaxipool.iptime.org:3000/api/user/session", userObj)
+        // axios.post("http://localhost:3001/api/user/session", userObj)
         .then(res => {
             // 아이디 또는 비번 일치 x
             if (res.status === 400){

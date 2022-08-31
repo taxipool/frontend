@@ -1,41 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SingleComment from './SingleComment'
 import './View.css';
 
 /*
     - 댓글 구현
     - 수정, 삭제 => 방장만
-    - 타기, 내리기 바뀌는 거
-    - 버튼 클릭했을 때 페이지 이동
+    - 타기, 내리기 바뀌는 거 ok
+    - 버튼 클릭했을 때 페이지 이동 ok
 */
-
-function OnClickRide() {
-    let obj = {
-        params: {
-            isRide: true,
-        }
-    };
-    
-    let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
-    
-    let config = {
-        headers: { Authorization: `Bearer ${accessToken}` }
-    };
-
-    let roomnum = 1;
-
-    axios.put(`http://localhost:1000/api/rooms/${roomnum}`, obj, config)
-    .then((res) => {
-        console.log(res);
-        alert('정상적으로 신청되었습니다!');
-    })
-    .catch((err) => { 
-        console.log(err);
-        alert('신청에 실패했습니다!');
-    })
-    
-}
 
 function View() {
     const [roomname, setRoomname] = useState('')
@@ -44,17 +16,17 @@ function View() {
     const [starttime, setStarttime] = useState('')
     const [totalmember, setTotalmember] = useState('')
     const [currentmember, setCurrentmember] = useState('')
-    const [isLeader, setIsLeader] = useState('')
-    const [isRide, setIsRide] = useState('')
+    const [isLeader, setIsLeader] = useState(false)
+    const [isRide, setIsRide] = useState(true)
 
     useEffect(() => {
-        let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
+        let accessToken = sessionStorage.getItem("access_token")
     
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
          };
 
-        axios.get(`http://localhost:1000/api/rooms/${window.location.pathname.slice(6, )}`, '', config)
+        axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
         .then(res => {
             setRoomname(res.data.room.roomname);
             setStartpoint(res.data.room.startpoint);
@@ -63,16 +35,53 @@ function View() {
             setTotalmember(res.data.room.totalmember);
             setCurrentmember(res.data.room.currentmember);
             setIsLeader(res.data.room.leaderid);
-            setIsRide(res.data.room.isRide);
-            // sessionStorage.setItem('token', res.token);
-            // token = sessionStorage.getItem('token');
+            setIsRide(res.data.isRide);
             }
         )
         .catch(err => console.log(err))
     },
     // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
     [])
+
+    const OnClickRide = (event) => {
+        if (isRide === true)
+        {
+            document.getElementsByClassName("ride").style.display = "none";
+            // document.getElementsByClassName("rideNo").style.display = "block";
+        }
+        else
+        {
+            document.getElementsByClassName("rideNo").style.display = "none";
+            // document.getElementsByClassName("ride").style.display = "block";
+        }
+
+        if (isLeader === true)
+        {
+            document.getElementsByClassName("modify").style.display = "block";
+        }
+        else
+        {
+            document.getElementsByClassName("modify").style.display = "none";
+        }
+
         
+        let accessToken = sessionStorage.getItem('access_token');
+        
+        let config = {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        };
+    
+        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}?isRide=${isRide? false:true}`, isRide, config)
+        .then((res) => {
+            console.log(res);
+            alert('정상적으로 신청되었습니다!');
+        })
+        .catch((err) => { 
+            console.log(err);
+            alert('신청에 실패했습니다!');
+        })
+    }
+
     return(
         <div class="view">
             <h2 class="title">ROOM</h2>
@@ -99,16 +108,18 @@ function View() {
                 <a href="/main"><button class="list" type='button'>
                     목록
                 </button></a>
+                <a href="/Update"><button class="modify" style={{"display" : isLeader ? 'inline' : 'none'}} type='button'>
+                    수정
+                </button></a>
+                { isRide === true
+                ?
+                <button class="rideNo" type='submit' onClick={OnClickRide}>
+                    내리기
+                </button>
+                :
                 <button class="ride" type='submit' onClick={OnClickRide}>
                     타기
-                </button>
-                <div>
-                    {
-                        isLeader ? <a href="/Update"><button class="modify" type='button'>
-                            수정</button></a>
-                        : null
-                    }
-                </div>
+                </button> }
             </div>
         </div>
         )
