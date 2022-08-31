@@ -6,7 +6,10 @@ import './Update.css';
     - 칸 다시 맞추기 ok
     - 뺄 거 빼기 ok
     - 가능하면 datepicker 이용
-    - 완료됐을 때 페이지 이동
+    - 완료됐을 때 페이지 이동 ok
+
+    - 완료됐을 때 페이지 이동 되는지 테스트
+    - 데이터 불러오기 잘 뜨는지 테스트
 */
 
 function Update() {
