@@ -10,6 +10,7 @@ import './View.css';
 */
 
 function View() {
+    const [roomno, setRoomno] = useState('')
     const [roomname, setRoomname] = useState('')
     const [startpoint, setStartpoint] = useState('')
     const [endpoint, setEndpoint] = useState('')
@@ -28,6 +29,7 @@ function View() {
 
         axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
         .then(res => {
+            setRoomno(res.data.room.roomno);
             setRoomname(res.data.room.roomname);
             setStartpoint(res.data.room.startpoint);
             setEndpoint(res.data.room.endpoint);
@@ -43,28 +45,7 @@ function View() {
     // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
     [])
 
-    const OnClickRide = (event) => {
-        if (isRide === true)
-        {
-            document.getElementsByClassName("ride").style.display = "none";
-            // document.getElementsByClassName("rideNo").style.display = "block";
-        }
-        else
-        {
-            document.getElementsByClassName("rideNo").style.display = "none";
-            // document.getElementsByClassName("ride").style.display = "block";
-        }
-
-        if (isLeader === true)
-        {
-            document.getElementsByClassName("modify").style.display = "block";
-        }
-        else
-        {
-            document.getElementsByClassName("modify").style.display = "none";
-        }
-
-        
+    const OnClickRide = (event) => {        
         let accessToken = sessionStorage.getItem('access_token');
         
         let config = {
@@ -80,6 +61,10 @@ function View() {
             console.log(err);
             alert('신청에 실패했습니다!');
         })
+    }
+
+    const OnClickModify = (roomno) => {
+        window.location.href = '/update/'+roomno;
     }
 
     return(
@@ -108,18 +93,18 @@ function View() {
                 <a href="/main"><button class="list" type='button'>
                     목록
                 </button></a>
-                <a href="/Update"><button class="modify" style={{"display" : isLeader ? 'inline' : 'none'}} type='button'>
-                    수정
-                </button></a>
-                { isRide === true
-                ?
-                <button class="rideNo" type='submit' onClick={OnClickRide}>
-                    내리기
-                </button>
-                :
-                <button class="ride" type='submit' onClick={OnClickRide}>
-                    타기
-                </button> }
+                {
+                    isLeader === true ?
+                        <button class="modify" type='button' onClick={() => {OnClickModify(roomno)}}>수정</button>
+                        : 
+                        null
+                }
+                { 
+                    isRide === true ?
+                        <button class="rideNo" type='submit' onClick={OnClickRide}>내리기</button>
+                        :
+                        <button class="ride" type='submit' onClick={OnClickRide}>타기</button> 
+                }
             </div>
         </div>
         )
