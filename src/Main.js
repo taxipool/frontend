@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Main.css';
 import icon from './icon.png'
@@ -20,18 +21,25 @@ function GetData() {
     .catch(err => console.log(err, '통신 실패!!'))
   }, []);
 
-  const item = (Object.values(data)).map((item) => (
-    <CommonTableRow key={item.id}>
-      <CommonTableColumn>{item.leaderid}</CommonTableColumn>
-      <CommonTableColumn>{item.roomname}</CommonTableColumn>
-      <CommonTableColumn>{item.startpoint}</CommonTableColumn>
-      <CommonTableColumn>{item.endpoint}</CommonTableColumn>
-      <CommonTableColumn>{item.starttime}</CommonTableColumn>
-      <CommonTableColumn>{item.currentmember}</CommonTableColumn>
-      <CommonTableColumn>{item.totalmember}</CommonTableColumn>
-      <CommonTableColumn>{item.createtime}</CommonTableColumn>
-    </CommonTableRow>
-  ));
+  const goView = (e) => {
+    console.log("click")
+    window.location.href = '/view/'+e;
+  }
+
+  const item = (Object.values(data)).map((item) => {
+    return (
+      <tr key={item.id} onClick={() => {goView(item.roomno)}}>
+        <CommonTableColumn>{item.leaderid}</CommonTableColumn>
+        <CommonTableColumn>{item.roomname}</CommonTableColumn>
+        <CommonTableColumn>{item.startpoint}</CommonTableColumn>
+        <CommonTableColumn>{item.endpoint}</CommonTableColumn>
+        <CommonTableColumn>{item.starttime}</CommonTableColumn>
+        <CommonTableColumn>{item.currentmember}</CommonTableColumn>
+        <CommonTableColumn>{item.totalmember}</CommonTableColumn>
+        <CommonTableColumn>{item.createtime}</CommonTableColumn>
+      </tr>
+    )
+  });
 
   return item;
 }
@@ -44,7 +52,7 @@ function Main() {
       <h2 class="title">LIST</h2>
       <hr></hr>
 
-      <CommonTable headersName={['방장', '제목', '출발지', '도착지', '시각', '현재인원', '모집인원', '생성일']}>
+      <CommonTable headersName={['방장', '제목', '출발지', '도착지', '시각', '현재 인원', '모집 인원', '생성일']}>
         {item}
       </CommonTable>
 
