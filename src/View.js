@@ -13,6 +13,7 @@ import './View.css';
 */
 
 function View() {
+    const [roomno, setRoomno] = useState('')
     const [roomname, setRoomname] = useState('')
     const [startpoint, setStartpoint] = useState('')
     const [endpoint, setEndpoint] = useState('')
@@ -33,7 +34,7 @@ function View() {
 
         axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
         .then(res => {
-            console.log(config);
+            setRoomno(res.data.room.roomno);
             setRoomname(res.data.room.roomname);
             setStartpoint(res.data.room.startpoint);
             setEndpoint(res.data.room.endpoint);
@@ -41,9 +42,7 @@ function View() {
             setTotalmember(res.data.room.totalmember);
             setCurrentmember(res.data.room.currentmember);
             setIsLeader(res.data.room.leaderid);
-            setIsRide(res.data.room.isRide);
-            // sessionStorage.setItem('token', res.token);
-            // token = sessionStorage.getItem('token');
+            setIsRide(res.data.isRide);
             }
         )
         .catch(err => console.log(err))
@@ -51,37 +50,13 @@ function View() {
     // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
     [])
 
-    const OnClickRide = (event) => {
-        if (isRide === true)
-        {
-            document.getElementsByClassName("ride").style.display = "none";
-            isRide = false;
-            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, isRide)
-        }
-        else
-        {
-            document.getElementsByClassName("rideNo").style.display = "none";
-            isRide = true;
-            axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, isRide)
-        }
-
-        if (isLeader === true)
-        {
-            document.getElementsByClassName("modify").style.display = "block";
-        }
-        else
-        {
-            document.getElementsByClassName("modify").style.display = "none";
-        }
-
-        let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im15aWQiLCJpYXQiOjE1MTYyMzkwMjJ9.SrLa4xS_VbNwYF4Zatu7ilRXCKrOlccvkBPHYV5yJSc"
+    const OnClickRide = (event) => {        
+        let accessToken = sessionStorage.getItem('access_token');
         
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
         };
-        
-        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/45`, isRide, config)
-        // {roomnum}
+        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}?isRide=${isRide? false:true}`, isRide, config)
         .then((res) => {
             console.log(res);
             alert('정상적으로 신청되었습니다!');
@@ -92,6 +67,10 @@ function View() {
         })
     }
 
+    const OnClickModify = (roomno) => {
+        window.location.href = '/update/'+roomno;
+    }
+    
     return(
         <div class="view">
             <h2 class="title">ROOM</h2>
@@ -119,18 +98,18 @@ function View() {
                 <a href="/main"><button class="list" type='button'>
                     목록
                 </button></a>
-                <a href="/Update"><button class="modify" style={{"display" : isLeader ? 'inline' : 'none'}} type='button'>
-                    수정
-                </button></a>
-                { isRide === true
-                ?
-                <button class="rideNo" type='submit' onClick={OnClickRide}>
-                    내리기
-                </button>
-                :
-                <button class="ride" type='submit' onClick={OnClickRide}>
-                    타기
-                </button> }
+                {
+                    isLeader === true ?
+                        <button class="modify" type='button' onClick={() => {OnClickModify(roomno)}}>수정</button>
+                        : 
+                        null
+                }
+                { 
+                    isRide === true ?
+                        <button class="rideNo" type='submit' onClick={OnClickRide}>내리기</button>
+                        :
+                        <button class="ride" type='submit' onClick={OnClickRide}>타기</button> 
+                }
             </div>
         </div>
         )

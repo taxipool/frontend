@@ -41,8 +41,8 @@ function Signup() {
             phone: phonenumber,
             nickname: nickname
          };
-         //axios.post("http://kittaxipool.iptime.org:3000/api/user/member", userObj)
-         axios.post("http://localhost:3001/api/user/member", userObj)
+         axios.post("http://kittaxipool.iptime.org:3000/api/user/member", userObj)
+        //  axios.post("http://localhost:3001/api/user/member", userObj)
         .then(res => {
             // 회원가입 실패
             if (res.status === 400){
