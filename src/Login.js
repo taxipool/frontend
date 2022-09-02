@@ -26,8 +26,8 @@ function Login() {
             id: id,
             password: password,
          };
-        axios.post("http://kittaxipool.iptime.org:3000/api/user/session", userObj)
-        // axios.post("http://localhost:3001/api/user/session", userObj)
+        // axios.post("http://kittaxipool.iptime.org:3000/api/user/session", userObj)
+        axios.post("http://localhost:3000/api/user/session", userObj)
         .then(res => {
             // 아이디 또는 비번 일치 x
             if (res.status === 400){
@@ -57,16 +57,9 @@ function Login() {
                 <div>
                     <input placeholder='비밀번호' type='password' name='password' value={password} onChange={onPasswordHandler} />
                 </div>
-                <div className='stay-login'>
-                    <p><i class="xi-check-circle-o"></i> 로그인 상태 유지</p>
-                </div>
                 <div>
                     <button type='button' onClick={onClickLogin}>로그인</button>
                 </div>
-            </div>
-            
-            <div>
-                <p><a>비밀번호 찾기</a> | <a>아이디 찾기</a> | <a>회원가입</a></p>
             </div>
         </div>
         

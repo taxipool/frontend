@@ -20,6 +20,7 @@ function View() {
 
 
     const [starttime, setStarttime] = useState('')
+    const [createtime, setCreatetime] = useState('')
     const [totalmember, setTotalmember] = useState('')
     const [currentmember, setCurrentmember] = useState('')
     const [isLeader, setIsLeader] = useState(false)
@@ -32,13 +33,15 @@ function View() {
             headers: { Authorization: `Bearer ${accessToken}`}
          };
 
-        axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
+        // axios.get(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
+        axios.get(`http://localhost:3000/api/rooms/${window.location.pathname.slice(6, )}`, config)
         .then(res => {
             setRoomno(res.data.room.roomno);
             setRoomname(res.data.room.roomname);
             setStartpoint(res.data.room.startpoint);
             setEndpoint(res.data.room.endpoint);
             setStarttime(res.data.room.starttime);
+            setCreatetime(res.data.room.createtime);
             setTotalmember(res.data.room.totalmember);
             setCurrentmember(res.data.room.currentmember);
             setIsLeader(res.data.room.leaderid);
@@ -56,7 +59,7 @@ function View() {
         let config = {
             headers: { Authorization: `Bearer ${accessToken}` }
         };
-        axios.put(`http://kittaxipool.iptime.org:3000/api/rooms/${window.location.pathname.slice(6, )}?isRide=${isRide? false:true}`, isRide, config)
+        axios.put(`http://localhost:3000/api/rooms/${window.location.pathname.slice(6, )}?isRide=${isRide? false:true}`, isRide, config)
         .then((res) => {
             console.log(res);
             alert('정상적으로 신청되었습니다!');
@@ -78,36 +81,45 @@ function View() {
             <div>
                 <label>방제</label>
                 <br></br>
+                <div class="value">{roomname}</div>
             </div>
             <div>
                 <label>출발지</label>
+                <br></br>
                 <div class="value">{startpoint}</div>
             </div>
                 <label>도착지</label>
+                <br></br>
                 <div class="value">{endpoint}</div>
             <div>
                 <label>출발 날짜</label>
+                <br></br>
                 <div class="value">{starttime.slice(0,10)}</div>
             </div>
             <div>
                 <label>출발 시간</label>
+                <br></br>
                 <div class="value">{starttime.slice(11,13)+"시 "+starttime.slice(14,16)+"분"}</div>
             </div>
             <div>
                 <label>총인원</label>
+                <br></br>
                 <div class="value">{totalmember+"명"}</div>
             </div>
             <div>
                 <label>현재 인원</label>
+                <br></br>
                 <div class="value">{currentmember}</div>
             </div>
             <div>
                 <label>생성 날짜</label>
-                <div class="value">{currentmember}</div>
+                <br></br>
+                <div class="value">{createtime.slice(0,10)}</div>
             </div>
             <div>
                 <label>생성 시간</label>
-                <div class="value">{currentmember}</div>
+                <br></br>
+                <div class="value">{createtime.slice(11,13)+"시"+createtime.slice(14,16)+"분"}</div>
             </div>
             <div>
                 <label class="comment"></label>
