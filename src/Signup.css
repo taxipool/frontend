@@ -1,7 +1,11 @@
-.signup {
-    height: 100vh;
+.signup-container {
+    background-color: #fff;
+    width: 500px;
     padding: 70px;
-    margin-top: 70px;
+    margin: 90px auto 30px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px;
+    text-align: center !important;
 }
 .signup .title {
     font-size: 30px;
