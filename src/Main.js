@@ -13,7 +13,8 @@ function GetData() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios.get('http://kittaxipool.iptime.org:3000/api/rooms')
+    // axios.get('http://kittaxipool.iptime.org:3000/api/rooms')
+    axios.get('http://localhost:3000/api/rooms')
     .then((res)=> {
       console.log(res.data)
       setData(res.data);

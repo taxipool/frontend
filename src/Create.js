@@ -37,7 +37,8 @@ function Create() {
          };
         
         console.log(obj);
-        axios.post(`http://kittaxipool.iptime.org:3000/api/rooms${window.location.pathname.slice(8, )}`, obj, config)
+        // axios.post(`http://kittaxipool.iptime.org:3000/api/rooms${window.location.pathname.slice(8, )}`, obj, config)
+        axios.post(`http://localhost:3000/api/rooms${window.location.pathname.slice(8, )}`, obj, config)
         .then(res => {
                 console.log(res);
                 if (res.status == 200)
