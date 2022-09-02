@@ -64,3 +64,14 @@
     width: 70px;
     height: 20px;
 }
+
+@media (max-width: 767px) {
+    .traffic-light {
+        position: fixed;
+        left: 2px;
+        bottom: 2px;
+    }
+    .traffic-light .traffic-middle, .traffic-light .traffic-bottom {
+        display: none;
+    }
+}

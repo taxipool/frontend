@@ -46,7 +46,7 @@ function Signup() {
             console.log(res);
         })
         .catch(err => {
-            alert("네트워크가 불안정합니다.");
+            alert("중복된 아이디입니다.");
             console.log(err);
         });
     }
@@ -57,17 +57,13 @@ function Signup() {
 
         axios.get("http://localhost:3000/api/user/member?nickname="+nickname)
         .then(res => {
-            if (res.status === 400){
-                alert('중복된 닉네임입니다.')
-            }
-            else if (res.status === 200) {
-                alert('사용 가능한 닉네임입니다.')
-                checkNickname = true;
+            if (res.status === 200){
+                alert("사용 가능한 닉네임입니다.")
             }
             console.log(res);
         })
         .catch(err => {
-            alert("네트워크가 불안정합니다.");
+            alert("중복된 닉네임입니다.");
             console.log(err);
         });
     }
@@ -120,28 +116,22 @@ function Signup() {
     return(
         <div class="signup">
             <div className='signup-container'>
-                <h2 class="title">SIGNUP</h2>
-                <hr></hr>
+                <h1 class="title">SIGNUP</h1>
                 <div>
-                    <label htmlFor='id'>아이디</label>
-                    <input placeholder="abcde" maxLength="10" class="check_input" type='text' name='id' value={id} onChange={onIdHandler} />
+                    <input placeholder="아이디" maxLength="10" class="check_input" type='text' name='id' value={id} onChange={onIdHandler} />
                     <button class="btn" onClick={onClickIDCheck}>중복 확인</button>
                 </div>
                 <div>
-                    <label htmlFor='password'>비밀번호</label>
-                    <input placeholder="********" maxLength="20" type='password' name='password' value={password} onChange={onPasswordHandler} />
+                    <input placeholder="비밀번호" maxLength="20" type='password' name='password' value={password} onChange={onPasswordHandler} />
                 </div>
                 <div>
-                    <label htmlFor='name'>이름</label>
-                    <input maxLength="6" placeholder="홍길동" class="check_input" type='text' name='name' value={name} onChange={onNameHandler} />
+                    <input maxLength="6" placeholder="이름" type='text' name='name' value={name} onChange={onNameHandler} />
                 </div>
                 <div>
-                    <label htmlFor='phonenumber'>전화번호</label>
-                    <input placeholder="010-0000-0000" type='text' name='phonenumber' value={phonenumber} onChange={onPhonenumberHandler} />
+                    <input placeholder="전화번호" type='text' name='phonenumber' value={phonenumber} onChange={onPhonenumberHandler} />
                 </div>
                 <div>
-                    <label htmlFor='nickname'>닉네임</label>
-                    <input placeholder="택시풀" type='text' name='nickname' value={nickname} onChange={onNicknameHandler} />
+                    <input class="check_input" placeholder="닉네임" type='text' name='nickname' value={nickname} onChange={onNicknameHandler} />
                     <button class="btn" onClick={onClickNicknameCheck}>중복 확인</button>
                 </div>
                 <div>

@@ -49,7 +49,7 @@ function Login() {
     // 디자인
     return(
         <div className="login">
-            <div className='login-container'>
+            <div className="login-container">
                 <h1 className="title">LOGIN</h1>
                 <div>
                     <input placeholder='아이디' type='text' name='id' value={id} onChange={onIdHandler} />

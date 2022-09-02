@@ -1,43 +1,43 @@
-.signup {
-    height: 100vh;
+.signup-container {
+    background-color: #fff;
+    width: 500px;
     padding: 70px;
-    margin-top: 70px;
+    margin: 120px auto 30px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px;
+    text-align: center;
 }
 .signup .title {
     font-size: 30px;
-}
-.signup hr {
-    border-top: 4px solid #666;
-    margin: 20px 30%;
-}
-.signup label {
-    text-align: left;
-    padding: 3px 10px;
-    display: block;
-    background-color: #ccc;
-    width: 180px;
-    margin: 0 auto;
-    border: 3px solid #999;
+    margin-bottom: 30px;
 }
 .signup .check_input {
-    width: 122px;
+    width: 183px !important;
     margin-left: 0;
 }
 .signup input {
+    box-shadow: 2px 2px 2px;
     background-color: #fff;
-    border: 3px solid;
-    padding: 3px 10px;
-    width: 180px;
+    border: .5px solid #C0C0C0;
+    padding: 7px 15px;
+    width: 150px;
     margin: 8px;
+    border-radius: 3px;
 }
 .signup .btn {
+    box-shadow: 2px 2px 2px;
     background-color: #fff;
-    border: 3px solid;
-    padding: 3px;
+    border: .5px solid #C0C0C0;
+    padding: 7px 5px;
+    margin: 8px 0 8px 8px;
+    border-radius: 3px;
 }
 .signup .signup_button {
     background-color: #000;
     color: white;
+    width: 150px;
     padding: 7px 12px;
+    border-radius: 3px;
     border: 2px solid #000;
+    margin-top: 30px;
 }

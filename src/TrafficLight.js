@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './TrafficLight.css';
 
 function TrafficLight() {
@@ -20,6 +21,23 @@ function TrafficLight() {
         window.location.href="/"
     }
 
+    function OnClickSignout() {
+        var inputPW = prompt("비밀번호를 입력하시면 탈퇴됩니다.");
+        
+        let userObj = {
+            pw: inputPW
+         };
+        
+        axios.post("http://localhost:3000/api/user/member", userObj)
+        .then(res => {
+            if(res.status == 400) {
+                alert("비밀번호가 틀렸습니다.");
+            } else if(res.status == 200) {
+                alert("회원탈퇴 성공")
+            }
+        })
+    }
+
     return(
         <div id="traffic" class="traffic-light">
             <div class="traffic-top">
@@ -34,7 +52,7 @@ function TrafficLight() {
                         <>
                             <button class="top" onClick={OnClickLogout}>로그아웃</button>
                             <button class="mid" onClick={() => {window.location.href="/create"}}>글쓰기</button>
-                            <button class="bottom">회원탈퇴</button>
+                            <button class="bottom" onClick={OnClickSignout}>회원탈퇴</button>
                         </>
                 }
                 
